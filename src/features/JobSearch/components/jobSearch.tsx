@@ -16,7 +16,7 @@ type FormData = {
 }
 
 export const JobSearch: React.FC<JobSearchProps> = () => {
-    const { register, handleSubmit, watch, setValue, errors } = useForm<FormData>({
+    const { register, handleSubmit, watch, setValue, errors, formState } = useForm<FormData>({
         mode: 'onChange',
         reValidateMode: 'onChange',
     })
@@ -65,10 +65,10 @@ export const JobSearch: React.FC<JobSearchProps> = () => {
             <form onSubmit={handleSubmit(onSubmit)} className="flex flex-row gap-4 justify-center">
                 <div className="flex flex-col w-1/4">
                     <input
-                        ref={register({ required: true })}
+                        ref={register({ required: true, minLength: 2 })}
                         autoComplete="off"
                         name="query"
-                        className="flex-1 appearance-none border border-transparent w-full py-2 px-4 bg-white text-gray-800 placeholder-gray-500 shadow-md rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-400 focus:border-transparent"
+                        className={`flex-1 appearance-none border border-transparent w-full py-2 px-4 bg-white text-gray-800 placeholder-gray-500 shadow-md rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-400 focus:border-transparent`}
                         type="text"
                         placeholder="Sök jobb"
                     />
@@ -80,12 +80,18 @@ export const JobSearch: React.FC<JobSearchProps> = () => {
                                 <input
                                     ref={register({
                                         required: true,
+                                        minLength: 2,
                                         validate: (value: string): boolean => {
                                             if (locations === undefined) {
                                                 return false
                                             }
 
                                             value = capitalizeFirstCharacterInString(value)
+
+                                            if (value === '') {
+                                                return false
+                                            }
+
                                             return locations.includes(value)
                                         },
                                     })}
