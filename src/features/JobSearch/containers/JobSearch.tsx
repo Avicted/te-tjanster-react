@@ -5,10 +5,11 @@ import { Job } from '../../../entities/Job'
 import { Language } from '../../../enums/language'
 import { AppState } from '../../../framework/store/rootReducer'
 import { searchJobs } from '../actions/jobSearchAction'
+import { JobSearch } from '../components/jobSearch'
 import { JobsList } from '../components/JobsList'
 import { getJobsFound, getLoadingData, getLoadingDataError, getError } from '../reducers/jobSearchReducer'
 
-export interface JobsSearchProps {
+export interface JobsSearchContainerProps {
     jobsFound: Job[] | undefined
     loadingData: boolean
     loadingDataError: boolean
@@ -16,8 +17,8 @@ export interface JobsSearchProps {
     onSearchJobs: (language: Language, query: string, location: string) => void
 }
 
-class JobSearch extends Component<JobsSearchProps> {
-    constructor(props: Readonly<JobsSearchProps>) {
+class JobSearchContainer extends Component<JobsSearchContainerProps> {
+    constructor(props: Readonly<JobsSearchContainerProps>) {
         super(props)
         const { onSearchJobs } = this.props
         onSearchJobs(Language.sv, 'programmer', '')
@@ -30,7 +31,7 @@ class JobSearch extends Component<JobsSearchProps> {
         const language: Language = Language.sv
         return (
             <div className="">
-                <div>Nu ska vi hitta jobb! :)</div>
+                <JobSearch />
                 <JobsList jobs={jobsFound} language={language} />
             </div>
         )
@@ -54,4 +55,4 @@ const mapDispatchToProps = (dispatch: Dispatch) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(JobSearch)
+export default connect(mapStateToProps, mapDispatchToProps)(JobSearchContainer)

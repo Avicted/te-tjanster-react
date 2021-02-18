@@ -5,5 +5,10 @@ module.exports = {
         extend: {},
     },
     variants: {},
-    plugins: [require('tailwindcss'), require('autoprefixer'), require('@tailwindcss/typography')],
+    plugins: [
+        require('tailwindcss'),
+        require('autoprefixer'),
+        require('@tailwindcss/typography'),
+        require('@tailwindcss/forms'),
+    ],
 }

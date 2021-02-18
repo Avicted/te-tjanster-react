@@ -33,11 +33,13 @@ export const JobsDetails: React.FC<JobDetailsProps> = () => {
     }
 
     return (
-        <div className="flex flex-col dark bg-gray-800 shadow-sm rounded p-4">
-            <div className="flex flex-col flex-grow justify-between mb-8">
-                <div className="text-sm text-white text-2xl">{jobDetails?.tehtavanimi}</div>
-                <div className={`font-normal`}>{jobDetails?.mainAmmatti}</div>
-                <div className={`font-normal whitespace-pre`}>{jobDetails?.kuvausteksti.replace('\n', '\n')}</div>
+        <div className="flex flex-col shadow-sm rounded pt-16">
+            <div className="text-sm text-2xl">{jobDetails?.tehtavanimi}</div>
+            <div className={`font-normal`}>{jobDetails?.mainAmmatti}</div>
+            <div className="flex flex-col flex-grow justify-between mb-8 shadow-sm rounded p-4 shadow-2xl rounded-xl p-8">
+                <div className={`font-normal`} style={{ whiteSpace: 'break-spaces' }}>
+                    {jobDetails?.kuvausteksti}
+                </div>
             </div>
         </div>
     )

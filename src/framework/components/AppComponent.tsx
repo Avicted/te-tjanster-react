@@ -10,7 +10,7 @@ export interface AppComponentState {}
 class AppComponent extends Component<AppComponentProps, AppComponentState> {
     render() {
         const { children } = this.props
-        return <div className="bg-gray-900 min-h-screen text-white font-sans">{children}</div>
+        return <div className="container mx-auto min-h-screen font-sans bg-gray-50">{children}</div>
     }
 }
 

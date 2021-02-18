@@ -13,13 +13,15 @@ export const JobsList: React.FC<JobsListProps> = ({ jobs, language }) => {
         return <div>No jobs to list</div>
     } else {
         return (
-            <div className="flex flex-col dark bg-gray-800 shadow-sm rounded p-4">
+            <div className="flex flex-col shadow-sm rounded p-4 shadow-2xl rounded-xl">
                 {jobs.map((job: Job, index: number) => {
                     return (
                         <Link to={`/job/${job.ilmoitusnumero}/${language}`} key={index}>
-                            <div className="flex flex-col flex-grow justify-between mb-8">
-                                <div className="text-sm text-white text-2xl">{job.tehtavanimi}</div>
-                                <div className={`font-normal`}>
+                            <div className="group flex flex-col flex-grow justify-between p-4 hover:bg-gray-100 rounded-xl">
+                                <div className="text-sm text-xl font-medium group-hover:text-pink-500">
+                                    {job.tehtavanimi}
+                                </div>
+                                <div className={`font-normal text-gray-600 group-hover:no-underline`}>
                                     {job.tyonantajanNimi} - {job.kunta} - {job.tyonKestoTekstiYhdistetty} -{' '}
                                     {job.tyoaika}
                                 </div>
