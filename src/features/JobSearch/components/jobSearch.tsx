@@ -14,7 +14,7 @@ type FormData = {
 }
 
 export const JobSearch: React.FC<JobSearchProps> = () => {
-    const { register, handleSubmit, watch, errors } = useForm<FormData>({
+    const { register, handleSubmit, errors } = useForm<FormData>({
         mode: 'onChange',
         reValidateMode: 'onChange',
     })
@@ -32,6 +32,7 @@ export const JobSearch: React.FC<JobSearchProps> = () => {
         if (locations !== undefined) {
             console.log(locations)
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     useEffect(() => {

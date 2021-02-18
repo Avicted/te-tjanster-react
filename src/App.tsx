@@ -4,7 +4,7 @@ import { Provider } from 'react-redux'
 import store from './framework/store'
 import AppComponent from './framework/components/AppComponent'
 import { HashRouter, Route, Switch } from 'react-router-dom'
-import JobSearchContainer from './features/JobSearch/containers/JobSearch'
+import JobSearchContainer from './features/JobSearch/containers/JobSearchContainer'
 import { JobsDetails } from './features/JobSearch/components/jobDetails'
 ;(window as any).store = store
 function App() {

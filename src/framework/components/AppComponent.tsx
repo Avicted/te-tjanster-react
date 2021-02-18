@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { RouteComponentProps, withRouter } from 'react-router-dom'
+import { Footer } from './Footer'
 // import { Dispatch } from 'redux'
 // import { AppState } from '../store/rootReducer'
 // import { connect } from 'react-redux'
@@ -10,7 +11,12 @@ export interface AppComponentState {}
 class AppComponent extends Component<AppComponentProps, AppComponentState> {
     render() {
         const { children } = this.props
-        return <div className="container mx-auto min-h-screen font-sans bg-gray-50">{children}</div>
+        return (
+            <div className="min-h-screen">
+                <div className="container mx-auto font-sans bg-transparent">{children}</div>
+                <Footer />
+            </div>
+        )
     }
 }
 

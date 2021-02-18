@@ -1,3 +1,4 @@
+import { Transition } from '@headlessui/react'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
@@ -29,18 +30,29 @@ export const JobsDetails: React.FC<JobDetailsProps> = () => {
     }
 
     if (loadingJobDetails) {
-        return <>Loading</>
+        return <div className="flex flex-col justify-center h-screen text-center">Laddar</div>
     }
 
     return (
-        <div className="flex flex-col shadow-sm rounded pt-16">
-            <div className="text-sm text-2xl">{jobDetails?.tehtavanimi}</div>
-            <div className={`font-normal`}>{jobDetails?.mainAmmatti}</div>
-            <div className="flex flex-col flex-grow justify-between mb-8 shadow-sm rounded p-4 shadow-2xl rounded-xl p-8">
-                <div className={`font-normal`} style={{ whiteSpace: 'break-spaces' }}>
-                    {jobDetails?.kuvausteksti}
+        <div className="flex flex-col pt-16">
+            <Transition
+                appear={true}
+                show={loadingJobDetails === false}
+                enter="transition-opacity duration-75"
+                enterFrom="opacity-0"
+                enterTo="opacity-100"
+                leave="transition-opacity duration-500"
+                leaveFrom="opacity-100"
+                leaveTo="opacity-0"
+            >
+                <div className="text-sm text-2xl">{jobDetails?.tehtavanimi}</div>
+                <div className={`font-normal pb-3`}>{jobDetails?.mainAmmatti}</div>
+                <div className="flex flex-col flex-grow justify-between bg-white mb-8 shadow-sm rounded p-4 shadow-2xl rounded-xl p-8">
+                    <div className="prose min-w-full" style={{ whiteSpace: 'break-spaces' }}>
+                        {jobDetails?.kuvausteksti}
+                    </div>
                 </div>
-            </div>
+            </Transition>
         </div>
     )
 }

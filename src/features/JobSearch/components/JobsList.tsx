@@ -17,7 +17,7 @@ export const JobsList: React.FC<JobsListProps> = ({ jobs, language }) => {
         content = <div className="text-center p-8">Inga jobb hittades</div>
     } else {
         content = (
-            <>
+            <div>
                 {jobs.map((job: Job, index: number) => {
                     return (
                         <Link to={`/job/${job.ilmoitusnumero}/${language}`} key={index}>
@@ -33,9 +33,9 @@ export const JobsList: React.FC<JobsListProps> = ({ jobs, language }) => {
                         </Link>
                     )
                 })}
-            </>
+            </div>
         )
     }
 
-    return <div className="flex flex-col shadow-sm rounded p-4 shadow-2xl rounded-xl">{content}</div>
+    return <div className="flex flex-col shadow-sm rounded p-4 shadow-2xl rounded-xl bg-white">{content}</div>
 }

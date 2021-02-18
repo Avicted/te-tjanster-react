@@ -30,8 +30,11 @@ class JobSearchContainer extends Component<JobsSearchContainerProps> {
         // @TODO: hardcoded
         const language: Language = Language.sv
         return (
-            <div className="">
+            <div className="bg-transparent">
                 <JobSearch />
+                {jobsFound && jobsFound.length > 0 && (
+                    <p className="text-gray-600 pl-8 pb-2">{jobsFound.length} jobb hittades</p>
+                )}
                 <JobsList jobs={jobsFound} language={language} />
             </div>
         )
