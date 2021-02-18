@@ -1,0 +1,2332 @@
+{
+  "kunta": [
+    {
+      "koodi": "020",
+      "kuvaus": "Akaa"
+    },
+    {
+      "koodi": "005",
+      "kuvaus": "Alajärvi"
+    },
+    {
+      "koodi": "009",
+      "kuvaus": "Alavieska"
+    },
+    {
+      "koodi": "010",
+      "kuvaus": "Alavus"
+    },
+    {
+      "koodi": "016",
+      "kuvaus": "Asikkala"
+    },
+    {
+      "koodi": "018",
+      "kuvaus": "Askola"
+    },
+    {
+      "koodi": "019",
+      "kuvaus": "Aura"
+    },
+    {
+      "koodi": "604",
+      "kuvaus": "Birkala"
+    },
+    {
+      "koodi": "609",
+      "kuvaus": "Björneborg"
+    },
+    {
+      "koodi": "611",
+      "kuvaus": "Borgnäs"
+    },
+    {
+      "koodi": "638",
+      "kuvaus": "Borgå"
+    },
+    {
+      "koodi": "678",
+      "kuvaus": "Brahestad"
+    },
+    {
+      "koodi": "035",
+      "kuvaus": "Brändö"
+    },
+    {
+      "koodi": "218",
+      "kuvaus": "Bötom"
+    },
+    {
+      "koodi": "043",
+      "kuvaus": "Eckerö"
+    },
+    {
+      "koodi": "148",
+      "kuvaus": "Enare"
+    },
+    {
+      "koodi": "046",
+      "kuvaus": "Enonkoski"
+    },
+    {
+      "koodi": "047",
+      "kuvaus": "Enontekis"
+    },
+    {
+      "koodi": "049",
+      "kuvaus": "Esbo"
+    },
+    {
+      "koodi": "989",
+      "kuvaus": "Etseri"
+    },
+    {
+      "koodi": "050",
+      "kuvaus": "Eura"
+    },
+    {
+      "koodi": "051",
+      "kuvaus": "Euraåminne"
+    },
+    {
+      "koodi": "052",
+      "kuvaus": "Evijärvi"
+    },
+    {
+      "koodi": "060",
+      "kuvaus": "Finström"
+    },
+    {
+      "koodi": "061",
+      "kuvaus": "Forssa"
+    },
+    {
+      "koodi": "075",
+      "kuvaus": "Fredrikshamn"
+    },
+    {
+      "koodi": "062",
+      "kuvaus": "Föglö"
+    },
+    {
+      "koodi": "065",
+      "kuvaus": "Geta"
+    },
+    {
+      "koodi": "235",
+      "kuvaus": "Grankulla"
+    },
+    {
+      "koodi": "304",
+      "kuvaus": "Gustavs"
+    },
+    {
+      "koodi": "069",
+      "kuvaus": "Haapajärvi"
+    },
+    {
+      "koodi": "071",
+      "kuvaus": "Haapavesi"
+    },
+    {
+      "koodi": "197",
+      "kuvaus": "Överårig sökord/ Vanhentunut hakutekijä"
+    },
+    {
+      "koodi": "074",
+      "kuvaus": "Halsua"
+    },
+    {
+      "koodi": "076",
+      "kuvaus": "Hammarland"
+    },
+    {
+      "koodi": "078",
+      "kuvaus": "Hangö"
+    },
+    {
+      "koodi": "077",
+      "kuvaus": "Hankasalmi"
+    },
+    {
+      "koodi": "079",
+      "kuvaus": "Harjavalta"
+    },
+    {
+      "koodi": "081",
+      "kuvaus": "Hartola"
+    },
+    {
+      "koodi": "082",
+      "kuvaus": "Hattula"
+    },
+    {
+      "koodi": "086",
+      "kuvaus": "Hausjärvi"
+    },
+    {
+      "koodi": "111",
+      "kuvaus": "Heinola"
+    },
+    {
+      "koodi": "090",
+      "kuvaus": "Heinävesi"
+    },
+    {
+      "koodi": "091",
+      "kuvaus": "Helsingfors"
+    },
+    {
+      "koodi": "097",
+      "kuvaus": "Hirvensalmi"
+    },
+    {
+      "koodi": "098",
+      "kuvaus": "Hollola"
+    },
+    {
+      "koodi": "102",
+      "kuvaus": "Huittinen"
+    },
+    {
+      "koodi": "103",
+      "kuvaus": "Humppila"
+    },
+    {
+      "koodi": "105",
+      "kuvaus": "Hyrynsalmi"
+    },
+    {
+      "koodi": "106",
+      "kuvaus": "Hyvinge"
+    },
+    {
+      "koodi": "224",
+      "kuvaus": "Högfors"
+    },
+    {
+      "koodi": "140",
+      "kuvaus": "Idensalmi"
+    },
+    {
+      "koodi": "139",
+      "kuvaus": "Ii"
+    },
+    {
+      "koodi": "142",
+      "kuvaus": "Iitti"
+    },
+    {
+      "koodi": "143",
+      "kuvaus": "Ikalis"
+    },
+    {
+      "koodi": "145",
+      "kuvaus": "Ilmajoki"
+    },
+    {
+      "koodi": "146",
+      "kuvaus": "Ilomants"
+    },
+    {
+      "koodi": "153",
+      "kuvaus": "Imatra"
+    },
+    {
+      "koodi": "149",
+      "kuvaus": "Ingå"
+    },
+    {
+      "koodi": "598",
+      "kuvaus": "Jakobstad"
+    },
+    {
+      "koodi": "165",
+      "kuvaus": "Janakkala"
+    },
+    {
+      "koodi": "169",
+      "kuvaus": "Jockis"
+    },
+    {
+      "koodi": "167",
+      "kuvaus": "Joensuu"
+    },
+    {
+      "koodi": "170",
+      "kuvaus": "Jomala"
+    },
+    {
+      "koodi": "171",
+      "kuvaus": "Jorois"
+    },
+    {
+      "koodi": "172",
+      "kuvaus": "Joutsa"
+    },
+    {
+      "koodi": "176",
+      "kuvaus": "Juuka"
+    },
+    {
+      "koodi": "177",
+      "kuvaus": "Juupajoki"
+    },
+    {
+      "koodi": "178",
+      "kuvaus": "Juva"
+    },
+    {
+      "koodi": "179",
+      "kuvaus": "Jyväskylä"
+    },
+    {
+      "koodi": "181",
+      "kuvaus": "Jämijärvi"
+    },
+    {
+      "koodi": "182",
+      "kuvaus": "Jämsä"
+    },
+    {
+      "koodi": "204",
+      "kuvaus": "Kaavi"
+    },
+    {
+      "koodi": "205",
+      "kuvaus": "Kajana"
+    },
+    {
+      "koodi": "208",
+      "kuvaus": "Kalajoki"
+    },
+    {
+      "koodi": "211",
+      "kuvaus": "Kangasala"
+    },
+    {
+      "koodi": "213",
+      "kuvaus": "Kangasniemi"
+    },
+    {
+      "koodi": "214",
+      "kuvaus": "Kankaanpää"
+    },
+    {
+      "koodi": "216",
+      "kuvaus": "Kannonkoski"
+    },
+    {
+      "koodi": "217",
+      "kuvaus": "Kannus"
+    },
+    {
+      "koodi": "202",
+      "kuvaus": "S:t Karins"
+    },
+    {
+      "koodi": "272",
+      "kuvaus": "Karleby"
+    },
+    {
+      "koodi": "072",
+      "kuvaus": "Karlö"
+    },
+    {
+      "koodi": "226",
+      "kuvaus": "Karstula"
+    },
+    {
+      "koodi": "230",
+      "kuvaus": "Karvia"
+    },
+    {
+      "koodi": "231",
+      "kuvaus": "Kaskö"
+    },
+    {
+      "koodi": "232",
+      "kuvaus": "Kauhajoki"
+    },
+    {
+      "koodi": "233",
+      "kuvaus": "Kauhava"
+    },
+    {
+      "koodi": "236",
+      "kuvaus": "Kaustby"
+    },
+    {
+      "koodi": "239",
+      "kuvaus": "Keitele"
+    },
+    {
+      "koodi": "240",
+      "kuvaus": "Kemi"
+    },
+    {
+      "koodi": "320",
+      "kuvaus": "Kemijärvi"
+    },
+    {
+      "koodi": "241",
+      "kuvaus": "Keminmaa"
+    },
+    {
+      "koodi": "244",
+      "kuvaus": "Kempele"
+    },
+    {
+      "koodi": "245",
+      "kuvaus": "Kervo"
+    },
+    {
+      "koodi": "249",
+      "kuvaus": "Keuruu"
+    },
+    {
+      "koodi": "250",
+      "kuvaus": "Kihniö"
+    },
+    {
+      "koodi": "322",
+      "kuvaus": "Kimitoön"
+    },
+    {
+      "koodi": "256",
+      "kuvaus": "Kinnula"
+    },
+    {
+      "koodi": "260",
+      "kuvaus": "Kitee"
+    },
+    {
+      "koodi": "261",
+      "kuvaus": "Kittilä"
+    },
+    {
+      "koodi": "263",
+      "kuvaus": "Kiuruvesi"
+    },
+    {
+      "koodi": "265",
+      "kuvaus": "Kivijärvi"
+    },
+    {
+      "koodi": "273",
+      "kuvaus": "Kolari"
+    },
+    {
+      "koodi": "275",
+      "kuvaus": "Konnevesi"
+    },
+    {
+      "koodi": "276",
+      "kuvaus": "Kontiolahti"
+    },
+    {
+      "koodi": "499",
+      "kuvaus": "Korsholm"
+    },
+    {
+      "koodi": "280",
+      "kuvaus": "Korsnäs"
+    },
+    {
+      "koodi": "284",
+      "kuvaus": "Koski"
+    },
+    {
+      "koodi": "285",
+      "kuvaus": "Kotka"
+    },
+    {
+      "koodi": "286",
+      "kuvaus": "Kouvola"
+    },
+    {
+      "koodi": "287",
+      "kuvaus": "Kristinestad"
+    },
+    {
+      "koodi": "288",
+      "kuvaus": "Kronoby"
+    },
+    {
+      "koodi": "290",
+      "kuvaus": "Kuhmo"
+    },
+    {
+      "koodi": "291",
+      "kuvaus": "Kuhmoinen"
+    },
+    {
+      "koodi": "295",
+      "kuvaus": "Kumlinge"
+    },
+    {
+      "koodi": "271",
+      "kuvaus": "Kumo"
+    },
+    {
+      "koodi": "297",
+      "kuvaus": "Kuopio"
+    },
+    {
+      "koodi": "300",
+      "kuvaus": "Kuortane"
+    },
+    {
+      "koodi": "301",
+      "kuvaus": "Kurikka"
+    },
+    {
+      "koodi": "305",
+      "kuvaus": "Kuusamo"
+    },
+    {
+      "koodi": "257",
+      "kuvaus": "Kyrkslätt"
+    },
+    {
+      "koodi": "312",
+      "kuvaus": "Kyyjärvi"
+    },
+    {
+      "koodi": "316",
+      "kuvaus": "Kärkölä"
+    },
+    {
+      "koodi": "317",
+      "kuvaus": "Kärsämäki"
+    },
+    {
+      "koodi": "318",
+      "kuvaus": "Kökar"
+    },
+    {
+      "koodi": "398",
+      "kuvaus": "Lahtis"
+    },
+    {
+      "koodi": "399",
+      "kuvaus": "Laihela"
+    },
+    {
+      "koodi": "400",
+      "kuvaus": "Laitila"
+    },
+    {
+      "koodi": "402",
+      "kuvaus": "Lapinlahti"
+    },
+    {
+      "koodi": "403",
+      "kuvaus": "Lappajärvi"
+    },
+    {
+      "koodi": "408",
+      "kuvaus": "Lappo"
+    },
+    {
+      "koodi": "407",
+      "kuvaus": "Lappträsk"
+    },
+    {
+      "koodi": "440",
+      "kuvaus": "Larsmo"
+    },
+    {
+      "koodi": "410",
+      "kuvaus": "Laukaa"
+    },
+    {
+      "koodi": "416",
+      "kuvaus": "Lemi"
+    },
+    {
+      "koodi": "417",
+      "kuvaus": "Lemland"
+    },
+    {
+      "koodi": "418",
+      "kuvaus": "Lempäälä"
+    },
+    {
+      "koodi": "420",
+      "kuvaus": "Leppävirta"
+    },
+    {
+      "koodi": "421",
+      "kuvaus": "Lestijärvi"
+    },
+    {
+      "koodi": "422",
+      "kuvaus": "Lieksa"
+    },
+    {
+      "koodi": "425",
+      "kuvaus": "Limingo"
+    },
+    {
+      "koodi": "426",
+      "kuvaus": "Liperi"
+    },
+    {
+      "koodi": "430",
+      "kuvaus": "Loimaa"
+    },
+    {
+      "koodi": "444",
+      "kuvaus": "Lojo"
+    },
+    {
+      "koodi": "433",
+      "kuvaus": "Loppi"
+    },
+    {
+      "koodi": "434",
+      "kuvaus": "Lovisa"
+    },
+    {
+      "koodi": "435",
+      "kuvaus": "Luhanka"
+    },
+    {
+      "koodi": "436",
+      "kuvaus": "Lumijoki"
+    },
+    {
+      "koodi": "438",
+      "kuvaus": "Lumparland"
+    },
+    {
+      "koodi": "423",
+      "kuvaus": "Lundo"
+    },
+    {
+      "koodi": "441",
+      "kuvaus": "Luumäki"
+    },
+    {
+      "koodi": "475",
+      "kuvaus": "Malax"
+    },
+    {
+      "koodi": "478",
+      "kuvaus": "Mariehamn"
+    },
+    {
+      "koodi": "480",
+      "kuvaus": "Marttila"
+    },
+    {
+      "koodi": "481",
+      "kuvaus": "Masku"
+    },
+    {
+      "koodi": "483",
+      "kuvaus": "Merijärvi"
+    },
+    {
+      "koodi": "491",
+      "kuvaus": "S:t Michel"
+    },
+    {
+      "koodi": "489",
+      "kuvaus": "Miehikkälä"
+    },
+    {
+      "koodi": "494",
+      "kuvaus": "Muhos"
+    },
+    {
+      "koodi": "495",
+      "kuvaus": "Multia"
+    },
+    {
+      "koodi": "498",
+      "kuvaus": "Muonio"
+    },
+    {
+      "koodi": "500",
+      "kuvaus": "Muurame"
+    },
+    {
+      "koodi": "503",
+      "kuvaus": "Mynämäki"
+    },
+    {
+      "koodi": "505",
+      "kuvaus": "Mäntsälä"
+    },
+    {
+      "koodi": "508",
+      "kuvaus": "Mänttä-Vilppula"
+    },
+    {
+      "koodi": "507",
+      "kuvaus": "Mäntyharju"
+    },
+    {
+      "koodi": "504",
+      "kuvaus": "Mörskom"
+    },
+    {
+      "koodi": "531",
+      "kuvaus": "Nakkila"
+    },
+    {
+      "koodi": "535",
+      "kuvaus": "Nivala"
+    },
+    {
+      "koodi": "536",
+      "kuvaus": "Nokia"
+    },
+    {
+      "koodi": "538",
+      "kuvaus": "Nousis"
+    },
+    {
+      "koodi": "541",
+      "kuvaus": "Nurmes"
+    },
+    {
+      "koodi": "543",
+      "kuvaus": "Nurmijärvi"
+    },
+    {
+      "koodi": "893",
+      "kuvaus": "Nykarleby"
+    },
+    {
+      "koodi": "740",
+      "kuvaus": "Nyslott"
+    },
+    {
+      "koodi": "895",
+      "kuvaus": "Nystad"
+    },
+    {
+      "koodi": "545",
+      "kuvaus": "Närpes"
+    },
+    {
+      "koodi": "529",
+      "kuvaus": "Nådendal"
+    },
+    {
+      "koodi": "560",
+      "kuvaus": "Orimattila"
+    },
+    {
+      "koodi": "561",
+      "kuvaus": "Oripää"
+    },
+    {
+      "koodi": "562",
+      "kuvaus": "Orivesi"
+    },
+    {
+      "koodi": "563",
+      "kuvaus": "Oulainen"
+    },
+    {
+      "koodi": "309",
+      "kuvaus": "Outokumpu"
+    },
+    {
+      "koodi": "576",
+      "kuvaus": "Padasjoki"
+    },
+    {
+      "koodi": "578",
+      "kuvaus": "Paltamo"
+    },
+    {
+      "koodi": "445",
+      "kuvaus": "Pargas"
+    },
+    {
+      "koodi": "580",
+      "kuvaus": "Parikkala"
+    },
+    {
+      "koodi": "581",
+      "kuvaus": "Parkano"
+    },
+    {
+      "koodi": "599",
+      "kuvaus": "Pedersöre"
+    },
+    {
+      "koodi": "583",
+      "kuvaus": "Pelkosenniemi"
+    },
+    {
+      "koodi": "854",
+      "kuvaus": "Pello"
+    },
+    {
+      "koodi": "577",
+      "kuvaus": "Pemar"
+    },
+    {
+      "koodi": "584",
+      "kuvaus": "Perho"
+    },
+    {
+      "koodi": "588",
+      "kuvaus": "Pertunmaa"
+    },
+    {
+      "koodi": "592",
+      "kuvaus": "Petäjävesi"
+    },
+    {
+      "koodi": "593",
+      "kuvaus": "Pieksämäki"
+    },
+    {
+      "koodi": "595",
+      "kuvaus": "Pielavesi"
+    },
+    {
+      "koodi": "601",
+      "kuvaus": "Pihtipudas"
+    },
+    {
+      "koodi": "607",
+      "kuvaus": "Polvijärvi"
+    },
+    {
+      "koodi": "614",
+      "kuvaus": "Posio"
+    },
+    {
+      "koodi": "615",
+      "kuvaus": "Pudasjärvi"
+    },
+    {
+      "koodi": "616",
+      "kuvaus": "Pukkila"
+    },
+    {
+      "koodi": "619",
+      "kuvaus": "Punkalaidun"
+    },
+    {
+      "koodi": "620",
+      "kuvaus": "Puolanka"
+    },
+    {
+      "koodi": "623",
+      "kuvaus": "Puumala"
+    },
+    {
+      "koodi": "625",
+      "kuvaus": "Pyhäjoki"
+    },
+    {
+      "koodi": "626",
+      "kuvaus": "Pyhäjärvi"
+    },
+    {
+      "koodi": "630",
+      "kuvaus": "Pyhäntä"
+    },
+    {
+      "koodi": "631",
+      "kuvaus": "Pyhäranta"
+    },
+    {
+      "koodi": "624",
+      "kuvaus": "Pyttis"
+    },
+    {
+      "koodi": "635",
+      "kuvaus": "Pälkäne"
+    },
+    {
+      "koodi": "608",
+      "kuvaus": "Påmark"
+    },
+    {
+      "koodi": "636",
+      "kuvaus": "Pöytyä"
+    },
+    {
+      "koodi": "681",
+      "kuvaus": "Rantasalmi"
+    },
+    {
+      "koodi": "683",
+      "kuvaus": "Ranua"
+    },
+    {
+      "koodi": "710",
+      "kuvaus": "Raseborg"
+    },
+    {
+      "koodi": "684",
+      "kuvaus": "Raumo"
+    },
+    {
+      "koodi": "686",
+      "kuvaus": "Rautalampi"
+    },
+    {
+      "koodi": "687",
+      "kuvaus": "Rautavaara"
+    },
+    {
+      "koodi": "689",
+      "kuvaus": "Rautjärvi"
+    },
+    {
+      "koodi": "691",
+      "kuvaus": "Reisjärvi"
+    },
+    {
+      "koodi": "680",
+      "kuvaus": "Reso"
+    },
+    {
+      "koodi": "694",
+      "kuvaus": "Riihimäki"
+    },
+    {
+      "koodi": "697",
+      "kuvaus": "Ristijärvi"
+    },
+    {
+      "koodi": "698",
+      "kuvaus": "Rovaniemi"
+    },
+    {
+      "koodi": "700",
+      "kuvaus": "Ruokolahti"
+    },
+    {
+      "koodi": "702",
+      "kuvaus": "Ruovesi"
+    },
+    {
+      "koodi": "704",
+      "kuvaus": "Rusko"
+    },
+    {
+      "koodi": "707",
+      "kuvaus": "Rääkkylä"
+    },
+    {
+      "koodi": "729",
+      "kuvaus": "Saarijärvi"
+    },
+    {
+      "koodi": "738",
+      "kuvaus": "Sagu"
+    },
+    {
+      "koodi": "732",
+      "kuvaus": "Salla"
+    },
+    {
+      "koodi": "734",
+      "kuvaus": "Salo"
+    },
+    {
+      "koodi": "736",
+      "kuvaus": "Saltvik"
+    },
+    {
+      "koodi": "790",
+      "kuvaus": "Sastamala"
+    },
+    {
+      "koodi": "484",
+      "kuvaus": "Sastmola"
+    },
+    {
+      "koodi": "739",
+      "kuvaus": "Savitaipale"
+    },
+    {
+      "koodi": "742",
+      "kuvaus": "Savukoski"
+    },
+    {
+      "koodi": "743",
+      "kuvaus": "Seinäjoki"
+    },
+    {
+      "koodi": "753",
+      "kuvaus": "Sibbo"
+    },
+    {
+      "koodi": "746",
+      "kuvaus": "Sievi"
+    },
+    {
+      "koodi": "747",
+      "kuvaus": "Siikainen"
+    },
+    {
+      "koodi": "748",
+      "kuvaus": "Siikajoki"
+    },
+    {
+      "koodi": "791",
+      "kuvaus": "Siikalatva"
+    },
+    {
+      "koodi": "749",
+      "kuvaus": "Siilinjärvi"
+    },
+    {
+      "koodi": "751",
+      "kuvaus": "Simo"
+    },
+    {
+      "koodi": "755",
+      "kuvaus": "Sjundeå"
+    },
+    {
+      "koodi": "758",
+      "kuvaus": "Sodankylä"
+    },
+    {
+      "koodi": "759",
+      "kuvaus": "Soini"
+    },
+    {
+      "koodi": "761",
+      "kuvaus": "Somero"
+    },
+    {
+      "koodi": "762",
+      "kuvaus": "Sonkajärvi"
+    },
+    {
+      "koodi": "765",
+      "kuvaus": "Sotkamo"
+    },
+    {
+      "koodi": "766",
+      "kuvaus": "Sottunga"
+    },
+    {
+      "koodi": "152",
+      "kuvaus": "Storkyro"
+    },
+    {
+      "koodi": "151",
+      "kuvaus": "Storå"
+    },
+    {
+      "koodi": "768",
+      "kuvaus": "Sulkava"
+    },
+    {
+      "koodi": "771",
+      "kuvaus": "Sund"
+    },
+    {
+      "koodi": "777",
+      "kuvaus": "Suomussalmi"
+    },
+    {
+      "koodi": "778",
+      "kuvaus": "Suonenjoki"
+    },
+    {
+      "koodi": "781",
+      "kuvaus": "Sysmä"
+    },
+    {
+      "koodi": "783",
+      "kuvaus": "Säkylä"
+    },
+    {
+      "koodi": "831",
+      "kuvaus": "Taipalsaari"
+    },
+    {
+      "koodi": "832",
+      "kuvaus": "Taivalkoski"
+    },
+    {
+      "koodi": "834",
+      "kuvaus": "Tammela"
+    },
+    {
+      "koodi": "837",
+      "kuvaus": "Tammerfors"
+    },
+    {
+      "koodi": "109",
+      "kuvaus": "Tavastehus"
+    },
+    {
+      "koodi": "108",
+      "kuvaus": "Tavastkyro"
+    },
+    {
+      "koodi": "844",
+      "kuvaus": "Tervo"
+    },
+    {
+      "koodi": "845",
+      "kuvaus": "Tervola"
+    },
+    {
+      "koodi": "848",
+      "kuvaus": "Tohmajärvi"
+    },
+    {
+      "koodi": "849",
+      "kuvaus": "Toholampi"
+    },
+    {
+      "koodi": "850",
+      "kuvaus": "Toivakka"
+    },
+    {
+      "koodi": "851",
+      "kuvaus": "Torneå"
+    },
+    {
+      "koodi": "186",
+      "kuvaus": "Träskända"
+    },
+    {
+      "koodi": "858",
+      "kuvaus": "Tusby"
+    },
+    {
+      "koodi": "857",
+      "kuvaus": "Tuusniemi"
+    },
+    {
+      "koodi": "859",
+      "kuvaus": "Tyrnävä"
+    },
+    {
+      "koodi": "833",
+      "kuvaus": "Tövsala"
+    },
+    {
+      "koodi": "564",
+      "kuvaus": "Uleåborg"
+    },
+    {
+      "koodi": "886",
+      "kuvaus": "Ulvsby"
+    },
+    {
+      "koodi": "887",
+      "kuvaus": "Urjala"
+    },
+    {
+      "koodi": "889",
+      "kuvaus": "Utajärvi"
+    },
+    {
+      "koodi": "890",
+      "kuvaus": "Utsjoki"
+    },
+    {
+      "koodi": "892",
+      "kuvaus": "Uurainen"
+    },
+    {
+      "koodi": "785",
+      "kuvaus": "Vaala"
+    },
+    {
+      "koodi": "908",
+      "kuvaus": "Valkeakoski"
+    },
+    {
+      "koodi": "092",
+      "kuvaus": "Vanda"
+    },
+    {
+      "koodi": "915",
+      "kuvaus": "Varkaus"
+    },
+    {
+      "koodi": "905",
+      "kuvaus": "Vasa"
+    },
+    {
+      "koodi": "918",
+      "kuvaus": "Vehmaa"
+    },
+    {
+      "koodi": "921",
+      "kuvaus": "Vesanto"
+    },
+    {
+      "koodi": "922",
+      "kuvaus": "Vesilahti"
+    },
+    {
+      "koodi": "924",
+      "kuvaus": "Vetil"
+    },
+    {
+      "koodi": "927",
+      "kuvaus": "Vichtis"
+    },
+    {
+      "koodi": "925",
+      "kuvaus": "Vieremä"
+    },
+    {
+      "koodi": "931",
+      "kuvaus": "Viitasaari"
+    },
+    {
+      "koodi": "405",
+      "kuvaus": "Villmanstrand"
+    },
+    {
+      "koodi": "934",
+      "kuvaus": "Vimpeli"
+    },
+    {
+      "koodi": "936",
+      "kuvaus": "Virdois"
+    },
+    {
+      "koodi": "935",
+      "kuvaus": "Virolahti"
+    },
+    {
+      "koodi": "941",
+      "kuvaus": "Vårdö"
+    },
+    {
+      "koodi": "946",
+      "kuvaus": "Vörå"
+    },
+    {
+      "koodi": "977",
+      "kuvaus": "Ylivieska"
+    },
+    {
+      "koodi": "980",
+      "kuvaus": "Ylöjärvi"
+    },
+    {
+      "koodi": "981",
+      "kuvaus": "Ypäjä"
+    },
+    {
+      "koodi": "992",
+      "kuvaus": "Äänekoski"
+    },
+    {
+      "koodi": "853",
+      "kuvaus": "Åbo"
+    },
+    {
+      "koodi": "846",
+      "kuvaus": "Östermark"
+    },
+    {
+      "koodi": "976",
+      "kuvaus": "Övertorneå"
+    }
+  ],
+  "maakunta": [
+    {
+      "koodi": "04",
+      "kuvaus": "Birkaland"
+    },
+    {
+      "koodi": "02",
+      "kuvaus": "Egentliga Finland"
+    },
+    {
+      "koodi": "14",
+      "kuvaus": "Egentliga Tavastland"
+    },
+    {
+      "koodi": "09",
+      "kuvaus": "Mellersta Finland"
+    },
+    {
+      "koodi": "15",
+      "kuvaus": "Kajanaland"
+    },
+    {
+      "koodi": "07",
+      "kuvaus": "Norra Karelen"
+    },
+    {
+      "koodi": "17",
+      "kuvaus": "Södra Karelen"
+    },
+    {
+      "koodi": "05",
+      "kuvaus": "Kymmenedalen"
+    },
+    {
+      "koodi": "12",
+      "kuvaus": "Lappland"
+    },
+    {
+      "koodi": "20",
+      "kuvaus": "Mellersta Österbotten"
+    },
+    {
+      "koodi": "08",
+      "kuvaus": "Norra Savolax"
+    },
+    {
+      "koodi": "11",
+      "kuvaus": "Norra Österbotten"
+    },
+    {
+      "koodi": "01",
+      "kuvaus": "Nyland"
+    },
+    {
+      "koodi": "16",
+      "kuvaus": "Päijänne-Tavastland"
+    },
+    {
+      "koodi": "03",
+      "kuvaus": "Satakunta"
+    },
+    {
+      "koodi": "06",
+      "kuvaus": "Södra Savolax"
+    },
+    {
+      "koodi": "10",
+      "kuvaus": "Södra Österbotten"
+    },
+    {
+      "koodi": "13",
+      "kuvaus": "Åland"
+    },
+    {
+      "koodi": "19",
+      "kuvaus": "Österbotten"
+    }
+  ],
+  "maa": [
+    {
+      "koodi": "104",
+      "kuvaus": "Myanmar (Burma)"
+    },
+    {
+      "koodi": "178",
+      "kuvaus": "Kongo (Kongo-Brazzaville)"
+    },
+    {
+      "koodi": "180",
+      "kuvaus": "Kongo (Kongo-Kinshasa)"
+    },
+    {
+      "koodi": "534",
+      "kuvaus": "Sint Maarten (Nederändensk del)"
+    },
+    {
+      "koodi": "408",
+      "kuvaus": "Dem. f.rep. Korea (Nordkorea)"
+    },
+    {
+      "koodi": "410",
+      "kuvaus": "Republiken Korea (Sydkorea)"
+    },
+    {
+      "koodi": "840",
+      "kuvaus": "Förenta Staterna (USA)"
+    },
+    {
+      "koodi": "004",
+      "kuvaus": "Afghanistan"
+    },
+    {
+      "koodi": "008",
+      "kuvaus": "Albanien"
+    },
+    {
+      "koodi": "012",
+      "kuvaus": "Algeriet"
+    },
+    {
+      "koodi": "016",
+      "kuvaus": "Amerik. Samoa"
+    },
+    {
+      "koodi": "581",
+      "kuvaus": "Amerikanska Stillahavsöarna"
+    },
+    {
+      "koodi": "020",
+      "kuvaus": "Andorra"
+    },
+    {
+      "koodi": "024",
+      "kuvaus": "Angola"
+    },
+    {
+      "koodi": "660",
+      "kuvaus": "Anguilla"
+    },
+    {
+      "koodi": "010",
+      "kuvaus": "Antarktis"
+    },
+    {
+      "koodi": "028",
+      "kuvaus": "Antigua, Barbuda"
+    },
+    {
+      "koodi": "784",
+      "kuvaus": "För. arabemir."
+    },
+    {
+      "koodi": "032",
+      "kuvaus": "Argentina"
+    },
+    {
+      "koodi": "051",
+      "kuvaus": "Armenien"
+    },
+    {
+      "koodi": "533",
+      "kuvaus": "Aruba"
+    },
+    {
+      "koodi": "036",
+      "kuvaus": "Australien"
+    },
+    {
+      "koodi": "031",
+      "kuvaus": "Azerbaidzan"
+    },
+    {
+      "koodi": "044",
+      "kuvaus": "Bahamas"
+    },
+    {
+      "koodi": "048",
+      "kuvaus": "Bahrain"
+    },
+    {
+      "koodi": "050",
+      "kuvaus": "Bangladesh"
+    },
+    {
+      "koodi": "052",
+      "kuvaus": "Barbados"
+    },
+    {
+      "koodi": "652",
+      "kuvaus": "Saint Barthélemy"
+    },
+    {
+      "koodi": "056",
+      "kuvaus": "Belgien"
+    },
+    {
+      "koodi": "084",
+      "kuvaus": "Belize"
+    },
+    {
+      "koodi": "204",
+      "kuvaus": "Benin"
+    },
+    {
+      "koodi": "060",
+      "kuvaus": "Bermuda"
+    },
+    {
+      "koodi": "064",
+      "kuvaus": "Bhutan"
+    },
+    {
+      "koodi": "068",
+      "kuvaus": "Bolivia"
+    },
+    {
+      "koodi": "535",
+      "kuvaus": "Bonaire, Sint Eustatius och Saba"
+    },
+    {
+      "koodi": "070",
+      "kuvaus": "Bosnia, Hertsegovina"
+    },
+    {
+      "koodi": "072",
+      "kuvaus": "Botswana"
+    },
+    {
+      "koodi": "074",
+      "kuvaus": "Bouvetön"
+    },
+    {
+      "koodi": "076",
+      "kuvaus": "Brasilien"
+    },
+    {
+      "koodi": "086",
+      "kuvaus": "Britt Ind Oc."
+    },
+    {
+      "koodi": "092",
+      "kuvaus": "Brittiska Jungfruöarna"
+    },
+    {
+      "koodi": "096",
+      "kuvaus": "Brunei"
+    },
+    {
+      "koodi": "100",
+      "kuvaus": "Bulgarien"
+    },
+    {
+      "koodi": "854",
+      "kuvaus": "Burkina Faso"
+    },
+    {
+      "koodi": "108",
+      "kuvaus": "Burundi"
+    },
+    {
+      "koodi": "540",
+      "kuvaus": "Nya Caledonien"
+    },
+    {
+      "koodi": "116",
+      "kuvaus": "Cambodja"
+    },
+    {
+      "koodi": "124",
+      "kuvaus": "Canada"
+    },
+    {
+      "koodi": "136",
+      "kuvaus": "Caymanöarna"
+    },
+    {
+      "koodi": "140",
+      "kuvaus": "Centralafrikanska rep."
+    },
+    {
+      "koodi": "152",
+      "kuvaus": "Chile"
+    },
+    {
+      "koodi": "166",
+      "kuvaus": "Cocosöarna"
+    },
+    {
+      "koodi": "170",
+      "kuvaus": "Colombia"
+    },
+    {
+      "koodi": "174",
+      "kuvaus": "Comorerna"
+    },
+    {
+      "koodi": "184",
+      "kuvaus": "Cooköarna"
+    },
+    {
+      "koodi": "188",
+      "kuvaus": "Costa Rica"
+    },
+    {
+      "koodi": "192",
+      "kuvaus": "Cuba"
+    },
+    {
+      "koodi": "531",
+      "kuvaus": "Curacao"
+    },
+    {
+      "koodi": "196",
+      "kuvaus": "Cypern"
+    },
+    {
+      "koodi": "208",
+      "kuvaus": "Danmark"
+    },
+    {
+      "koodi": "275",
+      "kuvaus": "De palestinska områdena"
+    },
+    {
+      "koodi": "262",
+      "kuvaus": "Djibouti"
+    },
+    {
+      "koodi": "214",
+      "kuvaus": "Domin. republ."
+    },
+    {
+      "koodi": "212",
+      "kuvaus": "Dominica"
+    },
+    {
+      "koodi": "218",
+      "kuvaus": "Ecuador"
+    },
+    {
+      "koodi": "818",
+      "kuvaus": "Egypten"
+    },
+    {
+      "koodi": "226",
+      "kuvaus": "Ekvatorialguinea"
+    },
+    {
+      "koodi": "222",
+      "kuvaus": "El Salvador"
+    },
+    {
+      "koodi": "384",
+      "kuvaus": "Elfenbenskusten"
+    },
+    {
+      "koodi": "232",
+      "kuvaus": "Eritrea"
+    },
+    {
+      "koodi": "233",
+      "kuvaus": "Estland"
+    },
+    {
+      "koodi": "231",
+      "kuvaus": "Etiopien"
+    },
+    {
+      "koodi": "238",
+      "kuvaus": "Falklandsöarna"
+    },
+    {
+      "koodi": "242",
+      "kuvaus": "Fiji"
+    },
+    {
+      "koodi": "608",
+      "kuvaus": "Filippinerna"
+    },
+    {
+      "koodi": "246",
+      "kuvaus": "Finland"
+    },
+    {
+      "koodi": "250",
+      "kuvaus": "Frankrike"
+    },
+    {
+      "koodi": "254",
+      "kuvaus": "Franska Guyana"
+    },
+    {
+      "koodi": "258",
+      "kuvaus": "Franska Polynesien"
+    },
+    {
+      "koodi": "260",
+      "kuvaus": "Franska Ocean."
+    },
+    {
+      "koodi": "876",
+      "kuvaus": "Wallis och Futuna"
+    },
+    {
+      "koodi": "234",
+      "kuvaus": "Färöarna"
+    },
+    {
+      "koodi": "266",
+      "kuvaus": "Gabon"
+    },
+    {
+      "koodi": "270",
+      "kuvaus": "Gambia"
+    },
+    {
+      "koodi": "268",
+      "kuvaus": "Georgien"
+    },
+    {
+      "koodi": "288",
+      "kuvaus": "Ghana"
+    },
+    {
+      "koodi": "292",
+      "kuvaus": "Gibraltar"
+    },
+    {
+      "koodi": "300",
+      "kuvaus": "Grekland"
+    },
+    {
+      "koodi": "670",
+      "kuvaus": "St Vinc. Gren."
+    },
+    {
+      "koodi": "308",
+      "kuvaus": "Grenada"
+    },
+    {
+      "koodi": "304",
+      "kuvaus": "Grönland"
+    },
+    {
+      "koodi": "312",
+      "kuvaus": "Guadeloupe"
+    },
+    {
+      "koodi": "316",
+      "kuvaus": "Guam"
+    },
+    {
+      "koodi": "320",
+      "kuvaus": "Guatemala"
+    },
+    {
+      "koodi": "831",
+      "kuvaus": "Guernsey"
+    },
+    {
+      "koodi": "324",
+      "kuvaus": "Guinea"
+    },
+    {
+      "koodi": "598",
+      "kuvaus": "Papua-Nya Guinea"
+    },
+    {
+      "koodi": "624",
+      "kuvaus": "Guinea-Bissau"
+    },
+    {
+      "koodi": "328",
+      "kuvaus": "Guyana"
+    },
+    {
+      "koodi": "332",
+      "kuvaus": "Haiti"
+    },
+    {
+      "koodi": "334",
+      "kuvaus": "Heard, Mcdonald"
+    },
+    {
+      "koodi": "654",
+      "kuvaus": "S:t Helena"
+    },
+    {
+      "koodi": "340",
+      "kuvaus": "Honduras"
+    },
+    {
+      "koodi": "344",
+      "kuvaus": "Hongkong"
+    },
+    {
+      "koodi": "356",
+      "kuvaus": "Indien"
+    },
+    {
+      "koodi": "360",
+      "kuvaus": "Indonesien"
+    },
+    {
+      "koodi": "368",
+      "kuvaus": "Irak"
+    },
+    {
+      "koodi": "364",
+      "kuvaus": "Iran"
+    },
+    {
+      "koodi": "372",
+      "kuvaus": "Irland"
+    },
+    {
+      "koodi": "352",
+      "kuvaus": "Island"
+    },
+    {
+      "koodi": "376",
+      "kuvaus": "Israel"
+    },
+    {
+      "koodi": "380",
+      "kuvaus": "Italien"
+    },
+    {
+      "koodi": "388",
+      "kuvaus": "Jamaica"
+    },
+    {
+      "koodi": "744",
+      "kuvaus": "Svalbard o Jan Mayen"
+    },
+    {
+      "koodi": "392",
+      "kuvaus": "Japan"
+    },
+    {
+      "koodi": "887",
+      "kuvaus": "Jemen"
+    },
+    {
+      "koodi": "832",
+      "kuvaus": "Jersey"
+    },
+    {
+      "koodi": "400",
+      "kuvaus": "Jordanien"
+    },
+    {
+      "koodi": "162",
+      "kuvaus": "Julön"
+    },
+    {
+      "koodi": "850",
+      "kuvaus": "Jungfruöarna, USA"
+    },
+    {
+      "koodi": "120",
+      "kuvaus": "Kamerun"
+    },
+    {
+      "koodi": "132",
+      "kuvaus": "Kap Verde"
+    },
+    {
+      "koodi": "398",
+      "kuvaus": "Kazakstan"
+    },
+    {
+      "koodi": "404",
+      "kuvaus": "Kenya"
+    },
+    {
+      "koodi": "156",
+      "kuvaus": "Kina"
+    },
+    {
+      "koodi": "417",
+      "kuvaus": "Kirgisien"
+    },
+    {
+      "koodi": "296",
+      "kuvaus": "Kiribati"
+    },
+    {
+      "koodi": "659",
+      "kuvaus": "St Kitts Nevis"
+    },
+    {
+      "koodi": "191",
+      "kuvaus": "Kroatien"
+    },
+    {
+      "koodi": "414",
+      "kuvaus": "Kuwait"
+    },
+    {
+      "koodi": "144",
+      "kuvaus": "Sri Lanka"
+    },
+    {
+      "koodi": "418",
+      "kuvaus": "Laos"
+    },
+    {
+      "koodi": "694",
+      "kuvaus": "Sierra Leone"
+    },
+    {
+      "koodi": "426",
+      "kuvaus": "Lesotho"
+    },
+    {
+      "koodi": "428",
+      "kuvaus": "Lettland"
+    },
+    {
+      "koodi": "422",
+      "kuvaus": "Libanon"
+    },
+    {
+      "koodi": "430",
+      "kuvaus": "Liberia"
+    },
+    {
+      "koodi": "434",
+      "kuvaus": "Libyen"
+    },
+    {
+      "koodi": "438",
+      "kuvaus": "Liechtenstein"
+    },
+    {
+      "koodi": "440",
+      "kuvaus": "Litauen"
+    },
+    {
+      "koodi": "662",
+      "kuvaus": "Saint Lucia"
+    },
+    {
+      "koodi": "442",
+      "kuvaus": "Luxemburg"
+    },
+    {
+      "koodi": "446",
+      "kuvaus": "Macao"
+    },
+    {
+      "koodi": "450",
+      "kuvaus": "Madagaskar"
+    },
+    {
+      "koodi": "807",
+      "kuvaus": "Makedonien"
+    },
+    {
+      "koodi": "454",
+      "kuvaus": "Malawi"
+    },
+    {
+      "koodi": "458",
+      "kuvaus": "Malaysia"
+    },
+    {
+      "koodi": "462",
+      "kuvaus": "Maldiverna"
+    },
+    {
+      "koodi": "466",
+      "kuvaus": "Mali"
+    },
+    {
+      "koodi": "470",
+      "kuvaus": "Malta"
+    },
+    {
+      "koodi": "833",
+      "kuvaus": "Mansaari"
+    },
+    {
+      "koodi": "674",
+      "kuvaus": "San Marino"
+    },
+    {
+      "koodi": "504",
+      "kuvaus": "Marocko"
+    },
+    {
+      "koodi": "584",
+      "kuvaus": "Marshallsöarna"
+    },
+    {
+      "koodi": "663",
+      "kuvaus": "Saint Martin"
+    },
+    {
+      "koodi": "474",
+      "kuvaus": "Martinique"
+    },
+    {
+      "koodi": "478",
+      "kuvaus": "Mauritanien"
+    },
+    {
+      "koodi": "480",
+      "kuvaus": "Mauritius"
+    },
+    {
+      "koodi": "175",
+      "kuvaus": "Mayotte"
+    },
+    {
+      "koodi": "991",
+      "kuvaus": "Utan medborgarskap"
+    },
+    {
+      "koodi": "484",
+      "kuvaus": "Mexiko"
+    },
+    {
+      "koodi": "583",
+      "kuvaus": "Mikronesien"
+    },
+    {
+      "koodi": "666",
+      "kuvaus": "St Pierre, Miquelon"
+    },
+    {
+      "koodi": "508",
+      "kuvaus": "Mocambique"
+    },
+    {
+      "koodi": "498",
+      "kuvaus": "Moldavien"
+    },
+    {
+      "koodi": "492",
+      "kuvaus": "Monaco"
+    },
+    {
+      "koodi": "496",
+      "kuvaus": "Mongoliet"
+    },
+    {
+      "koodi": "499",
+      "kuvaus": "Montenegro"
+    },
+    {
+      "koodi": "891",
+      "kuvaus": "Serbien och Montenegro"
+    },
+    {
+      "koodi": "500",
+      "kuvaus": "Montserrat"
+    },
+    {
+      "koodi": "516",
+      "kuvaus": "Namibia"
+    },
+    {
+      "koodi": "520",
+      "kuvaus": "Nauru"
+    },
+    {
+      "koodi": "528",
+      "kuvaus": "Nederländerna"
+    },
+    {
+      "koodi": "524",
+      "kuvaus": "Nepal"
+    },
+    {
+      "koodi": "558",
+      "kuvaus": "Nicaragua"
+    },
+    {
+      "koodi": "562",
+      "kuvaus": "Niger"
+    },
+    {
+      "koodi": "566",
+      "kuvaus": "Nigeria"
+    },
+    {
+      "koodi": "570",
+      "kuvaus": "Niue"
+    },
+    {
+      "koodi": "580",
+      "kuvaus": "Nordmariarerna"
+    },
+    {
+      "koodi": "574",
+      "kuvaus": "Norfolkön"
+    },
+    {
+      "koodi": "578",
+      "kuvaus": "Norge"
+    },
+    {
+      "koodi": "554",
+      "kuvaus": "Nya Zeeland"
+    },
+    {
+      "koodi": "239",
+      "kuvaus": "Sydgeorgien o Sydsandwichö."
+    },
+    {
+      "koodi": "780",
+      "kuvaus": "Trinidad och Tobago"
+    },
+    {
+      "koodi": "999",
+      "kuvaus": "Okänt"
+    },
+    {
+      "koodi": "512",
+      "kuvaus": "Oman"
+    },
+    {
+      "koodi": "586",
+      "kuvaus": "Pakistan"
+    },
+    {
+      "koodi": "585",
+      "kuvaus": "Palau"
+    },
+    {
+      "koodi": "591",
+      "kuvaus": "Panama"
+    },
+    {
+      "koodi": "600",
+      "kuvaus": "Paraguay"
+    },
+    {
+      "koodi": "604",
+      "kuvaus": "Peru"
+    },
+    {
+      "koodi": "612",
+      "kuvaus": "Pitcairn"
+    },
+    {
+      "koodi": "616",
+      "kuvaus": "Polen"
+    },
+    {
+      "koodi": "620",
+      "kuvaus": "Portugal"
+    },
+    {
+      "koodi": "678",
+      "kuvaus": "Sao Tome, Principe"
+    },
+    {
+      "koodi": "630",
+      "kuvaus": "Puerto Rico"
+    },
+    {
+      "koodi": "634",
+      "kuvaus": "Qatar"
+    },
+    {
+      "koodi": "638",
+      "kuvaus": "Reunion"
+    },
+    {
+      "koodi": "642",
+      "kuvaus": "Rumänien"
+    },
+    {
+      "koodi": "646",
+      "kuvaus": "Rwanda"
+    },
+    {
+      "koodi": "643",
+      "kuvaus": "Ryssland"
+    },
+    {
+      "koodi": "090",
+      "kuvaus": "Salomonsöarna"
+    },
+    {
+      "koodi": "882",
+      "kuvaus": "Samoa"
+    },
+    {
+      "koodi": "682",
+      "kuvaus": "Saudiarabien"
+    },
+    {
+      "koodi": "756",
+      "kuvaus": "Schweiz"
+    },
+    {
+      "koodi": "686",
+      "kuvaus": "Senegal"
+    },
+    {
+      "koodi": "688",
+      "kuvaus": "Serbien"
+    },
+    {
+      "koodi": "690",
+      "kuvaus": "Seychellerna"
+    },
+    {
+      "koodi": "702",
+      "kuvaus": "Singapore"
+    },
+    {
+      "koodi": "703",
+      "kuvaus": "Slovakien"
+    },
+    {
+      "koodi": "705",
+      "kuvaus": "Slovenien"
+    },
+    {
+      "koodi": "706",
+      "kuvaus": "Somalia"
+    },
+    {
+      "koodi": "724",
+      "kuvaus": "Spanien"
+    },
+    {
+      "koodi": "826",
+      "kuvaus": "Storbritannien"
+    },
+    {
+      "koodi": "729",
+      "kuvaus": "Sudan"
+    },
+    {
+      "koodi": "740",
+      "kuvaus": "Surinam"
+    },
+    {
+      "koodi": "752",
+      "kuvaus": "Sverige"
+    },
+    {
+      "koodi": "748",
+      "kuvaus": "Swaziland"
+    },
+    {
+      "koodi": "710",
+      "kuvaus": "Sydafrika"
+    },
+    {
+      "koodi": "728",
+      "kuvaus": "Sydsudan"
+    },
+    {
+      "koodi": "760",
+      "kuvaus": "Syrien"
+    },
+    {
+      "koodi": "762",
+      "kuvaus": "Tadzikistan"
+    },
+    {
+      "koodi": "158",
+      "kuvaus": "Taiwan"
+    },
+    {
+      "koodi": "834",
+      "kuvaus": "Tanzania"
+    },
+    {
+      "koodi": "148",
+      "kuvaus": "Tchad"
+    },
+    {
+      "koodi": "764",
+      "kuvaus": "Thailand"
+    },
+    {
+      "koodi": "203",
+      "kuvaus": "Tjeckien"
+    },
+    {
+      "koodi": "768",
+      "kuvaus": "Togo"
+    },
+    {
+      "koodi": "772",
+      "kuvaus": "Tokelau"
+    },
+    {
+      "koodi": "776",
+      "kuvaus": "Tonga"
+    },
+    {
+      "koodi": "788",
+      "kuvaus": "Tunisien"
+    },
+    {
+      "koodi": "792",
+      "kuvaus": "Turkiet"
+    },
+    {
+      "koodi": "795",
+      "kuvaus": "Turkmenistan"
+    },
+    {
+      "koodi": "796",
+      "kuvaus": "Turks-Caicosöarna"
+    },
+    {
+      "koodi": "798",
+      "kuvaus": "Tuvalu"
+    },
+    {
+      "koodi": "276",
+      "kuvaus": "Tyskland"
+    },
+    {
+      "koodi": "800",
+      "kuvaus": "Uganda"
+    },
+    {
+      "koodi": "804",
+      "kuvaus": "Ukraina"
+    },
+    {
+      "koodi": "348",
+      "kuvaus": "Ungern"
+    },
+    {
+      "koodi": "858",
+      "kuvaus": "Uruguay"
+    },
+    {
+      "koodi": "860",
+      "kuvaus": "Uzbekistan"
+    },
+    {
+      "koodi": "548",
+      "kuvaus": "Vanuatu"
+    },
+    {
+      "koodi": "336",
+      "kuvaus": "Vatikanstaten"
+    },
+    {
+      "koodi": "862",
+      "kuvaus": "Venezuela"
+    },
+    {
+      "koodi": "704",
+      "kuvaus": "Vietnam"
+    },
+    {
+      "koodi": "112",
+      "kuvaus": "Vitryssland"
+    },
+    {
+      "koodi": "732",
+      "kuvaus": "Västsahara"
+    },
+    {
+      "koodi": "894",
+      "kuvaus": "Zambia"
+    },
+    {
+      "koodi": "716",
+      "kuvaus": "Zimbabwe"
+    },
+    {
+      "koodi": "040",
+      "kuvaus": "Österrike"
+    },
+    {
+      "koodi": "626",
+      "kuvaus": "Östtimor"
+    },
+    {
+      "koodi": "99999",
+      "kuvaus": "Utland"
+    }
+  ]
+}

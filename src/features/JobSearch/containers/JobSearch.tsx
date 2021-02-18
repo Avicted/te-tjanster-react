@@ -4,7 +4,7 @@ import { Dispatch } from 'redux'
 import { Job } from '../../../entities/Job'
 import { Language } from '../../../enums/language'
 import { AppState } from '../../../framework/store/rootReducer'
-import { searchJobs } from '../actions/jobSearchAction'
+import { getLocations } from '../actions/jobSearchAction'
 import { JobSearch } from '../components/jobSearch'
 import { JobsList } from '../components/JobsList'
 import { getJobsFound, getLoadingData, getLoadingDataError, getError } from '../reducers/jobSearchReducer'
@@ -14,14 +14,14 @@ export interface JobsSearchContainerProps {
     loadingData: boolean
     loadingDataError: boolean
     error: string | undefined
-    onSearchJobs: (language: Language, query: string, location: string) => void
+    onGetLocations: (language: Language) => void
 }
 
 class JobSearchContainer extends Component<JobsSearchContainerProps> {
     constructor(props: Readonly<JobsSearchContainerProps>) {
         super(props)
-        const { onSearchJobs } = this.props
-        onSearchJobs(Language.sv, 'programmer', '')
+        const { onGetLocations } = this.props
+        onGetLocations(Language.sv)
     }
 
     render() {
@@ -49,8 +49,8 @@ const mapStateToProps = (state: AppState) => {
 
 const mapDispatchToProps = (dispatch: Dispatch) => {
     return {
-        onSearchJobs: (language: Language, query: string, location: string) => {
-            dispatch(searchJobs(language, query, location))
+        onGetLocations: (language: Language) => {
+            dispatch(getLocations(language))
         },
     }
 }

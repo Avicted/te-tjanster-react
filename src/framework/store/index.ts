@@ -2,7 +2,7 @@ import { createStore, applyMiddleware } from 'redux'
 import rootReducer from './rootReducer'
 import { compose } from 'redux'
 import createSagaMiddleware from 'redux-saga'
-import { getJobDetailsSaga, searchJobsSaga } from '../../features/JobSearch/sagas/jobSearchSagas'
+import { getJobDetailsSaga, getLocationsSaga, searchJobsSaga } from '../../features/JobSearch/sagas/jobSearchSagas'
 
 declare global {
     interface Window {
@@ -34,6 +34,7 @@ const store = createStore(rootReducer, initialState, enhancer)
 // Run sagas
 sagaMiddleware.run(searchJobsSaga)
 sagaMiddleware.run(getJobDetailsSaga)
+sagaMiddleware.run(getLocationsSaga)
 
 // export store singleton instance
 export default store

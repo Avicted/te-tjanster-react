@@ -1,6 +1,7 @@
 import produce from 'immer'
 import { Job } from '../../../entities/Job'
 import { JobDetails } from '../../../entities/jobDetails'
+import { Locations } from '../../../entities/locations'
 import { AppState } from '../../../framework/store/rootReducer'
 import { JobActions, JobSearchActionTypes } from '../actions/jobSearchAction'
 
@@ -12,6 +13,9 @@ interface JobSearchState {
     jobDetails: JobDetails | undefined
     loadingJobDetails: boolean
     loadingJobDetailsError: string | undefined
+    locations: Locations | undefined
+    loadingLocations: boolean
+    loadingLocationsError: string | undefined
 }
 
 const initialState: JobSearchState = {
@@ -22,6 +26,9 @@ const initialState: JobSearchState = {
     jobDetails: undefined,
     loadingJobDetails: false,
     loadingJobDetailsError: undefined,
+    locations: undefined,
+    loadingLocations: false,
+    loadingLocationsError: undefined,
 }
 
 export function jobSearchReducer(state: JobSearchState = initialState, action: JobActions) {
@@ -61,6 +68,23 @@ export function jobSearchReducer(state: JobSearchState = initialState, action: J
                 draft.loadingJobDetailsError = action.error
                 draft.jobDetails = undefined
             })
+        case JobSearchActionTypes.GetLocations:
+            return produce(state, (draft) => {
+                draft.loadingLocations = true
+                draft.loadingLocationsError = undefined
+            })
+        case JobSearchActionTypes.GetLocationsSuccess:
+            return produce(state, (draft) => {
+                draft.locations = action.locations
+                draft.loadingLocations = false
+                draft.loadingLocationsError = undefined
+            })
+        case JobSearchActionTypes.GetLocationsError:
+            return produce(state, (draft) => {
+                draft.locations = undefined
+                draft.loadingLocations = false
+                draft.loadingLocationsError = action.error
+            })
         default:
             return state
     }
@@ -92,4 +116,16 @@ export function getLoadingJobDetails(state: AppState): boolean {
 
 export function getLoadingJobDetailsError(state: AppState): string | undefined {
     return state.jobSearch.loadingJobDetailsError
+}
+
+export function getLocations(state: AppState): Locations | undefined {
+    return state.jobSearch.locations
+}
+
+export function getLoadingLocations(state: AppState): boolean {
+    return state.jobSearch.loadingLocations
+}
+
+export function getLoadingLocationsError(state: AppState): string | undefined {
+    return state.jobSearch.loadingLocationsError
 }

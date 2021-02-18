@@ -1,6 +1,7 @@
 import { Action } from 'redux'
 import { Job } from '../../../entities/Job'
 import { JobDetails } from '../../../entities/jobDetails'
+import { Locations } from '../../../entities/locations'
 import { Language } from '../../../enums/language'
 
 export enum JobSearchActionTypes {
@@ -10,6 +11,9 @@ export enum JobSearchActionTypes {
     GetJobDetails = 'JobSearch/GetJobDetails',
     GetJobDetailsSuccess = 'JobSearch/GetJobSuccess',
     GetJobDetailsError = 'JobSearch/GetJobDetailsError',
+    GetLocations = 'JobSearch/GetLocations',
+    GetLocationsSuccess = 'JobSearch/GetLocationsSuccess',
+    GetLocationsError = 'JobSearch/GetLocationsError',
 }
 
 export interface SearchJobs extends Action {
@@ -45,6 +49,21 @@ export interface GetJobDetailsError extends Action {
     error: string
 }
 
+export interface GetLocations extends Action {
+    type: JobSearchActionTypes.GetLocations
+    language: Language
+}
+
+export interface GetLocationsSuccess extends Action {
+    type: JobSearchActionTypes.GetLocationsSuccess
+    locations: Locations
+}
+
+export interface GetLocationsError extends Action {
+    type: JobSearchActionTypes.GetLocationsError
+    error: string
+}
+
 export const jobSearchActions = {
     GetJobDetails: (id: string, language: Language): GetJobDetails => ({
         type: JobSearchActionTypes.GetJobDetails,
@@ -73,6 +92,18 @@ export const jobSearchActions = {
         type: JobSearchActionTypes.SearchJobsError,
         error,
     }),
+    GetLocations: (language: Language): GetLocations => ({
+        type: JobSearchActionTypes.GetLocations,
+        language,
+    }),
+    GetLocationsSuccess: (locations: Locations): GetLocationsSuccess => ({
+        type: JobSearchActionTypes.GetLocationsSuccess,
+        locations,
+    }),
+    GetLocationsError: (error: string): GetLocationsError => ({
+        type: JobSearchActionTypes.GetLocationsError,
+        error,
+    }),
 }
 
 export type JobActions =
@@ -82,6 +113,9 @@ export type JobActions =
     | GetJobDetails
     | GetJobDetailsSuccess
     | GetJobDetailsError
+    | GetLocations
+    | GetLocationsSuccess
+    | GetLocationsError
 
 export function searchJobs(language: Language, query: string, location: string) {
     return {
@@ -96,6 +130,13 @@ export function getJobDetails(jobId: number, language: Language) {
     return {
         type: JobSearchActionTypes.GetJobDetails,
         jobId,
+        language,
+    }
+}
+
+export function getLocations(language: Language) {
+    return {
+        type: JobSearchActionTypes.GetLocations,
         language,
     }
 }

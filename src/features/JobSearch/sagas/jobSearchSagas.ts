@@ -1,9 +1,16 @@
-import { GetJobDetails, jobSearchActions, JobSearchActionTypes, SearchJobs } from '../actions/jobSearchAction'
+import {
+    GetJobDetails,
+    GetLocations,
+    jobSearchActions,
+    JobSearchActionTypes,
+    SearchJobs,
+} from '../actions/jobSearchAction'
 import { call, put, takeLatest } from 'redux-saga/effects'
 import { TEApi } from '../../../api/teApi'
 import { Job } from '../../../entities/Job'
 import { ApiResponse } from '../../../entities/apiResponse'
 import { JobDetails } from '../../../entities/jobDetails'
+import { Locations } from '../../../entities/locations'
 
 const TeApi = new TEApi()
 
@@ -47,5 +54,24 @@ function* loadJobDetailsFlow(action: GetJobDetails) {
         }
     } catch (error) {
         yield put(jobSearchActions.GetJobDetailsError(error))
+    }
+}
+
+// Watcher saga
+export function* getLocationsSaga() {
+    yield takeLatest(JobSearchActionTypes.GetLocations, loadLocationsFlow)
+}
+
+// Worker saga
+function* loadLocationsFlow(action: GetLocations) {
+    try {
+        const { language } = action
+        const data: Locations | undefined = yield call(TeApi.getLocations, language)
+
+        if (data !== undefined) {
+            yield put(jobSearchActions.GetLocationsSuccess(data))
+        }
+    } catch (error) {
+        yield put(jobSearchActions.GetLocationsError(error))
     }
 }
