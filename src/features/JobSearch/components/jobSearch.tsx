@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Language } from '../../../enums/language'
+import { AppState } from '../../../framework/store/rootReducer'
 import { jobSearchActions } from '../actions/jobSearchAction'
+import { getLocations } from '../reducers/jobSearchReducer'
 
 interface JobSearchProps {}
 
@@ -12,8 +14,14 @@ type FormData = {
 }
 
 export const JobSearch: React.FC<JobSearchProps> = () => {
-    const { register, handleSubmit, watch, errors } = useForm<FormData>()
+    const { register, handleSubmit, watch, errors } = useForm<FormData>({
+        mode: 'onChange',
+        reValidateMode: 'onChange',
+    })
     const dispatch = useDispatch()
+    const locations: string[] | undefined = useSelector((state: AppState) =>
+        getLocations(state)?.kunta.map((item) => item.kuvaus)
+    )
 
     const onSubmit = (formData: FormData) => {
         const { query, location } = formData
@@ -21,8 +29,16 @@ export const JobSearch: React.FC<JobSearchProps> = () => {
     }
 
     useEffect(() => {
-        // eslint-disable-next-line react-hooks/exhaustive-deps
+        if (locations !== undefined) {
+            console.log(locations)
+        }
     }, [])
+
+    useEffect(() => {
+        if (errors) {
+            console.log(errors)
+        }
+    }, [errors])
 
     return (
         <div className="flex flex-col pt-32 pb-16">
@@ -31,6 +47,7 @@ export const JobSearch: React.FC<JobSearchProps> = () => {
                 <div className="flex flex-col w-1/4">
                     <input
                         ref={register({ required: true })}
+                        autoComplete="false"
                         name="query"
                         className="flex-1 appearance-none border border-transparent w-full py-2 px-4 bg-white text-gray-800 placeholder-gray-500 shadow-md rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-400 focus:border-transparent"
                         type="text"
@@ -39,7 +56,18 @@ export const JobSearch: React.FC<JobSearchProps> = () => {
                 </div>
                 <div className="flex flex-col">
                     <input
-                        ref={register({ required: true })}
+                        ref={register({
+                            required: true,
+                            validate: (value: string): boolean => {
+                                if (locations === undefined) {
+                                    return false
+                                }
+
+                                value = value.charAt(0).toUpperCase() + value.slice(1)
+                                return locations.includes(value)
+                            },
+                        })}
+                        autoComplete="false"
                         name="location"
                         type="text"
                         className="flex-1 appearance-none border border-transparent w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-500 shadow-md rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-400 focus:border-transparent"
@@ -55,6 +83,9 @@ export const JobSearch: React.FC<JobSearchProps> = () => {
                     </button>
                 </div>
             </form>
+            <div className="flex flex-col text-center text-red-600 font-bold pt-4">
+                {errors.location && <p>Orten är ogiltig</p>}
+            </div>
         </div>
     )
 }

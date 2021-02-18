@@ -8,6 +8,10 @@ export class TEApi {
     searchJob = async (language: Language, query: string, location: string): Promise<any> => {
         try {
             if (process.env.REACT_APP_USE_LIVE_DATA_API === 'true') {
+                // The TE API expects the location to have a capitalized first character with the rest of the name in lowercase
+                // Example: Helsinki is valid, helsinki is invalid.
+                location = location.charAt(0).toUpperCase() + location.slice(1)
+
                 const res = await fetch(
                     `https://paikat.te-palvelut.fi/tpt-api/tyopaikat?kieli=${language}&hakusana=${query}&alueet=${location}`
                 )
