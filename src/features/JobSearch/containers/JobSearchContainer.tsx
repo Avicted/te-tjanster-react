@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { WithTranslation, withTranslation } from 'react-i18next'
 import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
 import { Job } from '../../../entities/Job'
@@ -7,9 +8,12 @@ import { AppState } from '../../../framework/store/rootReducer'
 import { getLocations } from '../actions/jobSearchAction'
 import { JobSearch } from '../components/jobSearch'
 import { JobsList } from '../components/JobsList'
+import { LanugageSelection } from '../components/languageSelection'
 import { getJobsFound, getLoadingData, getLoadingDataError, getError } from '../reducers/jobSearchReducer'
 
-export interface JobsSearchContainerProps {
+export interface JobsSearchContainerProps extends WithTranslation {
+    t: any
+    useSuspense: boolean
     jobsFound: Job[] | undefined
     loadingData: boolean
     loadingDataError: boolean
@@ -25,15 +29,18 @@ class JobSearchContainer extends Component<JobsSearchContainerProps> {
     }
 
     render() {
-        const { jobsFound } = this.props
+        const { jobsFound, t } = this.props
 
         // @TODO: hardcoded
         const language: Language = Language.sv
         return (
             <div className="bg-transparent">
+                <LanugageSelection />
                 <JobSearch />
                 {jobsFound && jobsFound.length > 0 && (
-                    <p className="text-gray-600 pl-8 pb-2">{jobsFound.length} jobb hittades</p>
+                    <p className="text-gray-600 pl-8 pb-2">
+                        {jobsFound.length} {t('job_search_container_number_of_jobs_found')}
+                    </p>
                 )}
                 <JobsList jobs={jobsFound} language={language} />
             </div>
@@ -58,4 +65,4 @@ const mapDispatchToProps = (dispatch: Dispatch) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(JobSearchContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(withTranslation()(JobSearchContainer))

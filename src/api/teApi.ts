@@ -3,7 +3,7 @@ import { Language } from '../enums/language'
 import programmerare_vasa_sv from '../resources/programmerare_vasa_sv.json'
 import single_job from '../resources/single_job.json'
 import locations from '../resources/locations.json'
-import { capitalizeFirstCharacterInString } from '../utilities'
+import { capitalizeFirstCharacterInString } from '../shared/utilities'
 
 export class TEApi {
     searchJob = async (language: Language, query: string, location: string): Promise<any> => {
