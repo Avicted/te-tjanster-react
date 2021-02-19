@@ -68,5 +68,14 @@ export const JobsList: React.FC<JobsListProps> = ({ jobs, language }) => {
         )
     }
 
-    return <div className="flex flex-col p-4 shadow-2xl rounded-xl bg-white">{content}</div>
+    return (
+        <>
+            {jobs && jobs.length > 0 && (
+                <p className="text-gray-600 pl-8 pb-2">
+                    {jobs.length} {t('job_search_container_number_of_jobs_found')}
+                </p>
+            )}
+            <div className="flex flex-col p-4 shadow-2xl rounded-xl bg-white">{content}</div>
+        </>
+    )
 }

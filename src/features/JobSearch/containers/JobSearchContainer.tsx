@@ -30,11 +30,6 @@ class JobSearchContainer extends Component<JobsSearchContainerProps> {
             <div className="bg-transparent">
                 <LanugageSelection />
                 <JobSearch />
-                {jobsFound && jobsFound.length > 0 && (
-                    <p className="text-gray-600 pl-8 pb-2">
-                        {jobsFound.length} {t('job_search_container_number_of_jobs_found')}
-                    </p>
-                )}
                 <JobsList jobs={jobsFound} language={language} />
             </div>
         )
