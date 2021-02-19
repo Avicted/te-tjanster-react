@@ -16,7 +16,7 @@ type FormData = {
 }
 
 export const JobSearch: React.FC<JobSearchProps> = () => {
-    const { register, handleSubmit, watch, setValue, errors, formState } = useForm<FormData>({
+    const { register, handleSubmit, watch, setValue, errors } = useForm<FormData>({
         mode: 'onChange',
         reValidateMode: 'onChange',
     })
@@ -60,21 +60,24 @@ export const JobSearch: React.FC<JobSearchProps> = () => {
     }, [errors, showLocationSuggestions])
 
     return (
-        <div className="flex flex-col pt-32 pb-16">
+        <div className="flex flex-col pt-12 md:pt-32 pb-16">
             <h1 className="font-sans text-3xl text-center text-black font-bold mb-6">TE-Tjänster på riktigt!</h1>
-            <form onSubmit={handleSubmit(onSubmit)} className="flex flex-row gap-4 justify-center">
-                <div className="flex flex-col w-1/4">
+            <form
+                onSubmit={handleSubmit(onSubmit)}
+                className="flex flex-nowrap md:flex-wrap flex-col md:flex-row gap-4 md:justify-center"
+            >
+                <div className="flex flex-row md:flex-col w-full md:w-1/4">
                     <input
                         ref={register({ required: true, minLength: 2 })}
                         autoComplete="off"
                         name="query"
                         className={`flex-1 appearance-none border border-transparent w-full py-2 px-4 bg-white text-gray-800 placeholder-gray-500 shadow-md rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-400 focus:border-transparent`}
                         type="text"
-                        placeholder="Sök jobb"
+                        placeholder="Jobbtitel"
                     />
                 </div>
-                <div className="flex flex-col">
-                    <div className="relative inline-block text-left">
+                <div className="flex flex-row md:flex-col w-full md:w-1/6">
+                    <div className="relative inline-block text-left w-full">
                         <Menu>
                             <>
                                 <input
@@ -149,18 +152,18 @@ export const JobSearch: React.FC<JobSearchProps> = () => {
                         </Menu>
                     </div>
                 </div>
-                <div className="flex flex-col">
+                <div className="flex flex-row md:flex-col">
                     <button
                         type="submit"
-                        className="h-full flex-shrink-0 bg-pink-500 text-white text-base font-semibold py-2 px-8 rounded-lg shadow-md hover:bg-pink-700 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2 focus:ring-offset-purple-200"
+                        className="w-full md:w-auto h-full flex-shrink-0 bg-pink-500 text-white text-base font-semibold py-2 px-8 rounded-lg shadow-md hover:bg-pink-700 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2 focus:ring-offset-purple-200"
                     >
                         Sök
                     </button>
                 </div>
+                <div className="w-2/4 flex flex-row md:flex-row text-left text-red-600 font-bold pt-4">
+                    {errors.location && watchLocation.length > 0 && <p>Orten är ogiltig</p>}
+                </div>
             </form>
-            <div className="flex flex-col text-center text-red-600 font-bold pt-4">
-                {errors.location && watchLocation.length > 0 && <p>Orten är ogiltig</p>}
-            </div>
         </div>
     )
 }
