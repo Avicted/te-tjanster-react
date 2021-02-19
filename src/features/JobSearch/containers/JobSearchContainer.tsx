@@ -1,3 +1,4 @@
+import { i18n } from 'i18next'
 import React, { Component } from 'react'
 import { WithTranslation, withTranslation } from 'react-i18next'
 import { connect } from 'react-redux'
@@ -5,7 +6,7 @@ import { Dispatch } from 'redux'
 import { Job } from '../../../entities/Job'
 import { Language } from '../../../enums/language'
 import { AppState } from '../../../framework/store/rootReducer'
-import { getLocations } from '../actions/jobSearchAction'
+// import { getLocations } from '../actions/jobSearchAction'
 import { JobSearch } from '../components/jobSearch'
 import { JobsList } from '../components/JobsList'
 import { LanugageSelection } from '../components/languageSelection'
@@ -13,26 +14,26 @@ import { getJobsFound, getLoadingData, getLoadingDataError, getError } from '../
 
 export interface JobsSearchContainerProps extends WithTranslation {
     t: any
+    i18n: i18n
     useSuspense: boolean
     jobsFound: Job[] | undefined
     loadingData: boolean
     loadingDataError: boolean
     error: string | undefined
-    onGetLocations: (language: Language) => void
+    // onGetLocations: (language: Language) => void
 }
 
 class JobSearchContainer extends Component<JobsSearchContainerProps> {
-    constructor(props: Readonly<JobsSearchContainerProps>) {
+    /* constructor(props: Readonly<JobsSearchContainerProps>) {
         super(props)
-        const { onGetLocations } = this.props
-        onGetLocations(Language.sv)
-    }
+        const { onGetLocations, i18n } = this.props
+        onGetLocations(Language[i18n.language as keyof typeof Language])
+    } */
 
     render() {
-        const { jobsFound, t } = this.props
+        const { jobsFound, t, i18n } = this.props
+        const language: Language = Language[i18n.language as keyof typeof Language]
 
-        // @TODO: hardcoded
-        const language: Language = Language.sv
         return (
             <div className="bg-transparent">
                 <LanugageSelection />
@@ -59,9 +60,9 @@ const mapStateToProps = (state: AppState) => {
 
 const mapDispatchToProps = (dispatch: Dispatch) => {
     return {
-        onGetLocations: (language: Language) => {
+        /* onGetLocations: (language: Language) => {
             dispatch(getLocations(language))
-        },
+        }, */
     }
 }
 

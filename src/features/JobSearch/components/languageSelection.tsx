@@ -1,11 +1,15 @@
 import { Menu, Transition } from '@headlessui/react'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 
 interface LanguageSelectionProps {}
 
 export const LanugageSelection: React.FC<LanguageSelectionProps> = () => {
     const { i18n, t } = useTranslation()
+
+    useEffect(() => {
+        document.title = t('all_app_title')
+    }, [i18n.language, t])
 
     return (
         <div className="flex flex-row justify-center md:justify-end mt-4">
@@ -40,11 +44,11 @@ export const LanugageSelection: React.FC<LanguageSelectionProps> = () => {
                                     className="absolute right-0 w-36 md:w-42 mt-2 origin-top-right bg-white border border-gray-200 divide-y divide-gray-100 rounded-md shadow-lg outline-none"
                                 >
                                     <div className="py-1">
-                                        <Menu.Item onClick={(event) => i18n.changeLanguage('se')}>
+                                        <Menu.Item onClick={(event) => i18n.changeLanguage('sv')}>
                                             {({ active }) => (
                                                 <p
                                                     className={`${
-                                                        i18n.language === 'se'
+                                                        i18n.language === 'sv'
                                                             ? 'bg-gray-100 text-pink-500'
                                                             : 'text-gray-700'
                                                     } ${

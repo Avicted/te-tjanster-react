@@ -5,6 +5,7 @@ import { Language } from '../../../enums/language'
 import { AppState } from '../../../framework/store/rootReducer'
 import { jobSearchActions } from '../actions/jobSearchAction'
 import { getLocations } from '../reducers/jobSearchReducer'
+import { getLocations as onGetLocations } from '../actions/jobSearchAction'
 import { Menu, Transition } from '@headlessui/react'
 import { useTranslation } from 'react-i18next'
 import { capitalizeFirstCharacterInString } from '../../../shared/utilities'
@@ -17,7 +18,7 @@ type FormData = {
 }
 
 export const JobSearch: React.FC<JobSearchProps> = () => {
-    const { t } = useTranslation()
+    const { t, i18n } = useTranslation()
     const { register, handleSubmit, watch, setValue, errors } = useForm<FormData>({
         mode: 'onChange',
         reValidateMode: 'onChange',
@@ -49,8 +50,17 @@ export const JobSearch: React.FC<JobSearchProps> = () => {
 
     const onSubmit = (formData: FormData) => {
         const { query, location } = formData
-        dispatch(jobSearchActions.SearchJobs(Language.sv, query, location))
+        dispatch(jobSearchActions.SearchJobs(Language[i18n.language as keyof typeof Language], query, location))
     }
+
+    useEffect(() => {
+        if (i18n.language === '' || i18n.language === undefined) {
+            return
+        }
+
+        dispatch(onGetLocations(Language[i18n.language as keyof typeof Language]))
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [i18n.language])
 
     useEffect(() => {
         if (errors) {
