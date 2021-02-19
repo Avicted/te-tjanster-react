@@ -24,9 +24,7 @@ export const JobsList: React.FC<JobsListProps> = ({ jobs, language }) => {
                     return (
                         <Link to={`/job/${job.ilmoitusnumero}/${language}`} key={index}>
                             <div className="group flex flex-col flex-grow justify-between p-4 hover:bg-gray-100 rounded-xl">
-                                <div className="text-sm text-xl font-medium group-hover:text-pink-500">
-                                    {job.tehtavanimi}
-                                </div>
+                                <div className="text-xl font-medium group-hover:text-pink-500">{job.tehtavanimi}</div>
                                 <div className={`font-normal text-gray-600 group-hover:no-underline`}>
                                     {job.tyonantajanNimi} - {job.kunta} - {job.tyonKestoTekstiYhdistetty} -{' '}
                                     {job.tyoaika}
@@ -39,5 +37,5 @@ export const JobsList: React.FC<JobsListProps> = ({ jobs, language }) => {
         )
     }
 
-    return <div className="flex flex-col shadow-sm rounded p-4 shadow-2xl rounded-xl bg-white">{content}</div>
+    return <div className="flex flex-col p-4 shadow-2xl rounded-xl bg-white">{content}</div>
 }

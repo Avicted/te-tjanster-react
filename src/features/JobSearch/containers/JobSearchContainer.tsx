@@ -6,7 +6,6 @@ import { Dispatch } from 'redux'
 import { Job } from '../../../entities/Job'
 import { Language } from '../../../enums/language'
 import { AppState } from '../../../framework/store/rootReducer'
-// import { getLocations } from '../actions/jobSearchAction'
 import { JobSearch } from '../components/jobSearch'
 import { JobsList } from '../components/JobsList'
 import { LanugageSelection } from '../components/languageSelection'
@@ -20,16 +19,9 @@ export interface JobsSearchContainerProps extends WithTranslation {
     loadingData: boolean
     loadingDataError: boolean
     error: string | undefined
-    // onGetLocations: (language: Language) => void
 }
 
 class JobSearchContainer extends Component<JobsSearchContainerProps> {
-    /* constructor(props: Readonly<JobsSearchContainerProps>) {
-        super(props)
-        const { onGetLocations, i18n } = this.props
-        onGetLocations(Language[i18n.language as keyof typeof Language])
-    } */
-
     render() {
         const { jobsFound, t, i18n } = this.props
         const language: Language = Language[i18n.language as keyof typeof Language]
@@ -59,11 +51,7 @@ const mapStateToProps = (state: AppState) => {
 }
 
 const mapDispatchToProps = (dispatch: Dispatch) => {
-    return {
-        /* onGetLocations: (language: Language) => {
-            dispatch(getLocations(language))
-        }, */
-    }
+    return {}
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(withTranslation()(JobSearchContainer))

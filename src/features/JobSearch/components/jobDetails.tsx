@@ -48,9 +48,9 @@ export const JobsDetails: React.FC<JobDetailsProps> = () => {
                 leaveFrom="opacity-100"
                 leaveTo="opacity-0"
             >
-                <div className="text-sm text-2xl font-bold pl-4 md:pl-8">{jobDetails?.tehtavanimi}</div>
+                <div className="text-2xl font-bold pl-4 md:pl-8">{jobDetails?.tehtavanimi}</div>
                 <div className={`font-normal pl-4 md:pl-8 pb-3`}>{jobDetails?.mainAmmatti}</div>
-                <div className="flex flex-col flex-grow justify-between bg-white mb-8 rounded shadow-2xl print:shadow-none rounded-xl">
+                <div className="flex flex-col flex-grow justify-between bg-white mb-8 shadow-2xl print:shadow-none rounded-xl">
                     <div className="prose-sm md:prose p-4 md:p-8 min-w-full" style={{ whiteSpace: 'break-spaces' }}>
                         {jobDetails?.kuvausteksti}
                     </div>
