@@ -62,15 +62,6 @@ export const JobSearch: React.FC<JobSearchProps> = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [i18n.language])
 
-    useEffect(() => {
-        if (errors) {
-            console.log(errors)
-        }
-        console.log({
-            showLocationSuggestions,
-        })
-    }, [errors, showLocationSuggestions])
-
     return (
         <div className="flex flex-col pt-12 md:pt-32 pb-16">
             <h1 className="font-sans text-3xl text-center text-black font-bold mb-6">{t('job_search_title')}</h1>
