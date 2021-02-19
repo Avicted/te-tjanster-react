@@ -1,0 +1,17 @@
+{
+    "job_search_container_number_of_jobs_found": "työpaikkaa löytyi",
+    "job_search_title": "TE-Palvelut oikeasti!",
+    "job_search_job_title": "Ammatti",
+    "job_search_location": "Paikkakunta",
+    "job_search_search": "Hae",
+    "job_search_invalid_location": "Paikkakunta on virheellinen",
+
+    "language_selection_language": "Kieli",
+
+    "jobs_list_no_jobs_were_found": "Työpaikkoja ei löytynyt",
+
+    "job_details_contact": "Yhteystiedot",
+    "job_details_website": "Kotisivu",
+    "job_details_worktime": "Työaika",
+    "job_details_deadline_for_applications": "Hakemusten määräaika"
+}

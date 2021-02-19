@@ -2,6 +2,7 @@ import React from 'react'
 import { Job } from '../../../entities/Job'
 import { Link } from 'react-router-dom'
 import { Language } from '../../../enums/language'
+import { useTranslation } from 'react-i18next'
 
 interface JobsListProps {
     jobs: Job[] | undefined
@@ -9,12 +10,13 @@ interface JobsListProps {
 }
 
 export const JobsList: React.FC<JobsListProps> = ({ jobs, language }) => {
+    const { t } = useTranslation()
     let content: any = null
 
     if (jobs === undefined) {
         return null
     } else if (jobs.length <= 0) {
-        content = <div className="text-center p-8">Inga jobb hittades</div>
+        content = <div className="text-center p-8">{t('jobs_list_no_jobs_were_found')}</div>
     } else {
         content = (
             <div>

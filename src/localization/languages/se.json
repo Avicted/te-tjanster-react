@@ -1,0 +1,17 @@
+{
+    "job_search_container_number_of_jobs_found": "jobb hittades",
+    "job_search_title": "TE-Tjänster på riktigt!",
+    "job_search_job_title": "Jobbtitel",
+    "job_search_location": "Ort",
+    "job_search_search": "Sök",
+    "job_search_invalid_location": "Orten är ogiltig",
+
+    "language_selection_language": "Språk",
+
+    "jobs_list_no_jobs_were_found": "Inga jobb hittades",
+
+    "job_details_contact": "Kontakt",
+    "job_details_website": "Hemsida",
+    "job_details_worktime": "Arbetstid",
+    "job_details_deadline_for_applications": "Sista ansökningsdatum"
+}

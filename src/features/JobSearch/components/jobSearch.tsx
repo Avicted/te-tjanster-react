@@ -6,7 +6,8 @@ import { AppState } from '../../../framework/store/rootReducer'
 import { jobSearchActions } from '../actions/jobSearchAction'
 import { getLocations } from '../reducers/jobSearchReducer'
 import { Menu, Transition } from '@headlessui/react'
-import { capitalizeFirstCharacterInString } from '../../../utilities'
+import { useTranslation } from 'react-i18next'
+import { capitalizeFirstCharacterInString } from '../../../shared/utilities'
 
 interface JobSearchProps {}
 
@@ -16,6 +17,7 @@ type FormData = {
 }
 
 export const JobSearch: React.FC<JobSearchProps> = () => {
+    const { t } = useTranslation()
     const { register, handleSubmit, watch, setValue, errors } = useForm<FormData>({
         mode: 'onChange',
         reValidateMode: 'onChange',
@@ -61,7 +63,7 @@ export const JobSearch: React.FC<JobSearchProps> = () => {
 
     return (
         <div className="flex flex-col pt-12 md:pt-32 pb-16">
-            <h1 className="font-sans text-3xl text-center text-black font-bold mb-6">TE-Tjänster på riktigt!</h1>
+            <h1 className="font-sans text-3xl text-center text-black font-bold mb-6">{t('job_search_title')}</h1>
             <form
                 onSubmit={handleSubmit(onSubmit)}
                 className="flex flex-nowrap md:flex-wrap flex-col md:flex-row gap-4 md:justify-center"
@@ -73,7 +75,7 @@ export const JobSearch: React.FC<JobSearchProps> = () => {
                         name="query"
                         className={`flex-1 appearance-none border border-transparent w-full py-2 px-4 bg-white text-gray-800 placeholder-gray-500 shadow-md rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-400 focus:border-transparent`}
                         type="text"
-                        placeholder="Jobbtitel"
+                        placeholder={t('job_search_job_title')}
                     />
                 </div>
                 <div className="flex flex-row md:flex-col w-full md:w-1/6">
@@ -102,7 +104,7 @@ export const JobSearch: React.FC<JobSearchProps> = () => {
                                     name="location"
                                     type="text"
                                     className="flex-1 appearance-none border border-transparent w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-500 shadow-md rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-400 focus:border-transparent"
-                                    placeholder="Ort"
+                                    placeholder={t('job_search_location')}
                                 />
 
                                 <Transition
@@ -157,11 +159,11 @@ export const JobSearch: React.FC<JobSearchProps> = () => {
                         type="submit"
                         className="w-full md:w-auto h-full flex-shrink-0 bg-pink-500 text-white text-base font-semibold py-2 px-8 rounded-lg shadow-md hover:bg-pink-700 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2 focus:ring-offset-purple-200"
                     >
-                        Sök
+                        {t('job_search_search')}
                     </button>
                 </div>
                 <div className="w-2/4 flex flex-row md:flex-row text-left text-red-600 font-bold pt-4">
-                    {errors.location && watchLocation.length > 0 && <p>Orten är ogiltig</p>}
+                    {errors.location && watchLocation.length > 0 && <p>{t('job_search_invalid_location')}</p>}
                 </div>
             </form>
         </div>

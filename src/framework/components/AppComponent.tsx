@@ -1,11 +1,15 @@
 import React, { Component } from 'react'
-import { RouteComponentProps, withRouter } from 'react-router-dom'
+import { WithTranslation, withTranslation } from 'react-i18next'
+// import { RouteComponentProps, withRouter } from 'react-router-dom'
 import { Footer } from './Footer'
 // import { Dispatch } from 'redux'
 // import { AppState } from '../store/rootReducer'
 // import { connect } from 'react-redux'
 
-export interface AppComponentProps extends RouteComponentProps {}
+export interface AppComponentProps extends WithTranslation {
+    children: React.ReactNode
+}
+
 export interface AppComponentState {}
 
 class AppComponent extends Component<AppComponentProps, AppComponentState> {
@@ -23,5 +27,5 @@ class AppComponent extends Component<AppComponentProps, AppComponentState> {
 // const mapStateToProps = (state: AppState) => ({})
 // const mapDispatchToProps = (dispatch: Dispatch) => {}
 
-// export default withRouter(connect(mapStateToProps, mapDispatchToProps)(AppComponent))
-export default withRouter(AppComponent)
+// export default withRouter(connect(mapStateToProps, mapDispatchToProps)(withTranslation()(AppComponent)))
+export default withTranslation()(AppComponent)
