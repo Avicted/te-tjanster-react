@@ -16,7 +16,7 @@ type FormData = {
 }
 
 export const JobSearch: React.FC<JobSearchProps> = () => {
-    const { register, handleSubmit, watch, setValue, errors, formState } = useForm<FormData>({
+    const { register, handleSubmit, watch, setValue, errors } = useForm<FormData>({
         mode: 'onChange',
         reValidateMode: 'onChange',
     })
