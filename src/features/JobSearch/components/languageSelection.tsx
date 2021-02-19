@@ -1,11 +1,15 @@
 import { Menu, Transition } from '@headlessui/react'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 
 interface LanguageSelectionProps {}
 
 export const LanugageSelection: React.FC<LanguageSelectionProps> = () => {
     const { i18n, t } = useTranslation()
+
+    useEffect(() => {
+        document.title = t('all_app_title')
+    }, [i18n.language, t])
 
     return (
         <div className="flex flex-row justify-center md:justify-end mt-4">
