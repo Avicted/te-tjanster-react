@@ -73,7 +73,7 @@ export const JobSearch: React.FC<JobSearchProps> = () => {
                         name="query"
                         className={`flex-1 appearance-none border border-transparent w-full py-2 px-4 bg-white text-gray-800 placeholder-gray-500 shadow-md rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-400 focus:border-transparent`}
                         type="text"
-                        placeholder="Sök jobb"
+                        placeholder="Jobbtitel"
                     />
                 </div>
                 <div className="flex flex-row md:flex-col w-full md:w-1/6">
