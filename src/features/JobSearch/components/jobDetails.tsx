@@ -34,7 +34,7 @@ export const JobsDetails: React.FC<JobDetailsProps> = () => {
     }
 
     return (
-        <div className="flex flex-col pt-16">
+        <div className="flex flex-col pt-2 md:pt-12">
             <Transition
                 appear={true}
                 show={loadingJobDetails === false}
@@ -45,8 +45,8 @@ export const JobsDetails: React.FC<JobDetailsProps> = () => {
                 leaveFrom="opacity-100"
                 leaveTo="opacity-0"
             >
-                <div className="text-sm text-2xl">{jobDetails?.tehtavanimi}</div>
-                <div className={`font-normal pb-3`}>{jobDetails?.mainAmmatti}</div>
+                <div className="text-sm text-2xl pl-8">{jobDetails?.tehtavanimi}</div>
+                <div className={`font-normal pl-8 pb-3`}>{jobDetails?.mainAmmatti}</div>
                 <div className="flex flex-col flex-grow justify-between bg-white mb-8 shadow-sm rounded p-4 shadow-2xl rounded-xl p-8">
                     <div className="prose min-w-full" style={{ whiteSpace: 'break-spaces' }}>
                         {jobDetails?.kuvausteksti}
