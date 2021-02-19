@@ -25,8 +25,6 @@ function* loadJobsFlow(action: SearchJobs) {
         const { language, query, location } = action
         const data: ApiResponse = yield call(TeApi.searchJob, language, query, location)
 
-        console.log('loadJobsFlow')
-        console.log(data)
         if (data.response?.docs) {
             yield put(jobSearchActions.SearchJobsSuccess(data.response?.docs as Job[]))
         }
@@ -46,9 +44,6 @@ function* loadJobDetailsFlow(action: GetJobDetails) {
         const { id, language } = action
         const data: ApiResponse = yield call(TeApi.getJobDetails, id, language)
 
-        console.log('loadJobDetailsFlow')
-        console.log(data)
-        console.log(data.response?.docs[0])
         if (data.response?.docs[0]) {
             yield put(jobSearchActions.GetJobDetailsSuccess(data.response?.docs[0] as JobDetails))
         }
