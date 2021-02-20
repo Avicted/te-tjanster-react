@@ -174,12 +174,18 @@ export const JobsList: React.FC<JobsListProps> = ({ jobs, totalAmountOfJobs, lan
             )}
 
             <div className="flex flex-row justify-center mt-12">
-                <button
-                    onClick={() => fetchMoreJobsWithTheSameQuery()}
-                    className="flex-shrink-0 bg-pink-500 text-white text-base font-semibold py-2 px-8 rounded-lg shadow-md hover:bg-pink-700 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2 focus:ring-offset-purple-200"
-                >
-                    {t('jobs_list_show_more')}
-                </button>
+                {totalAmountOfJobs !== undefined && (
+                    <>
+                        {jobs.length < totalAmountOfJobs && (
+                            <button
+                                onClick={() => fetchMoreJobsWithTheSameQuery()}
+                                className="flex-shrink-0 bg-pink-500 text-white text-base font-semibold py-2 px-8 rounded-lg shadow-md hover:bg-pink-700 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2 focus:ring-offset-purple-200"
+                            >
+                                {t('jobs_list_show_more')}
+                            </button>
+                        )}
+                    </>
+                )}
             </div>
         </>
     )
