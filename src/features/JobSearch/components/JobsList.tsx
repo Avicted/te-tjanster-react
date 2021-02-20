@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Job } from '../../../entities/Job'
 import { Link } from 'react-router-dom'
 import { Language } from '../../../enums/language'
@@ -18,14 +18,13 @@ interface JobsListProps {
 export const JobsList: React.FC<JobsListProps> = ({ jobs, totalAmountOfJobs, language }) => {
     let content: any = null
     const { t, i18n } = useTranslation()
+    const [denseList, setDenseList] = useState<boolean>(false)
     const dispatch = useDispatch()
     const isLoading: boolean = useSelector((state: AppState) => getLoadingData(state))
     const previousJobSearchQuery: JobSearchParameters | undefined = useSelector((state: AppState) =>
         getJobSearchParameters(state)
     )
 
-    // @Avic continue here :)
-    // @Note: this is the infinite scrolling data fetching
     const fetchMoreJobsWithTheSameQuery = (): void => {
         if (previousJobSearchQuery === undefined) {
             return
@@ -56,6 +55,19 @@ export const JobsList: React.FC<JobsListProps> = ({ jobs, totalAmountOfJobs, lan
         </div>
     )
 
+    useEffect(() => {
+        const data = localStorage.getItem('dense_list')
+        const result: boolean = data === 'true' ? true : false
+
+        if (data) {
+            setDenseList(result)
+        }
+    }, [])
+
+    useEffect(() => {
+        localStorage.setItem('dense_list', `${denseList}`)
+    })
+
     if (isLoading && previousJobSearchQuery?.appendJobsToPreviousJobs === undefined) {
         return loadingSpinner()
     }
@@ -65,20 +77,36 @@ export const JobsList: React.FC<JobsListProps> = ({ jobs, totalAmountOfJobs, lan
     } else if (jobs.length <= 0) {
         content = <div className="text-center p-8">{t('jobs_list_no_jobs_were_found')}</div>
     } else {
-        // @TODO: button toggle: -> save the preference in localStorage!
-        // "dense" list? a smaller version of the list, think of the gmail email listings. Their height is like 10-20px?
         content = (
             <div>
                 {jobs.map((job: Job, index: number) => {
                     return (
                         <Link to={`/job/${job.ilmoitusnumero}/${language}`} key={index}>
-                            <div className="group flex flex-col flex-grow justify-between p-4 hover:bg-gray-100 rounded-xl">
-                                <div className="text-xl font-medium group-hover:text-pink-500">{job.tehtavanimi}</div>
-                                <div className={`font-normal text-gray-600 group-hover:no-underline`}>
-                                    {job.tyonantajanNimi} - {job.kunta} - {job.tyonKestoTekstiYhdistetty} -{' '}
-                                    {job.tyoaika}
+                            {denseList ? (
+                                <div className="group flex flex-col flex-grow justify-between pl-4 pr-4 pt-1 pb-1 hover:bg-gray-100 rounded-md">
+                                    <div className="flex flex-row align-bottom">
+                                        <p className="w-2/3 md:w-auto text-sm font-medium group-hover:text-pink-500 pr-4 truncate">
+                                            {job.tehtavanimi}
+                                        </p>
+                                        <span
+                                            className={`w-1/3 md:w-auto text-sm text-gray-600 group-hover:no-underline truncate`}
+                                        >
+                                            {job.tyonantajanNimi} - {job.kunta} - {job.tyonKestoTekstiYhdistetty} -{' '}
+                                            {job.tyoaika}
+                                        </span>
+                                    </div>
                                 </div>
-                            </div>
+                            ) : (
+                                <div className="group flex flex-col flex-grow justify-between pl-4 pr-4 pt-2 pb-2 hover:bg-gray-100 rounded-xl">
+                                    <div className="text-md font-medium group-hover:text-pink-500">
+                                        {job.tehtavanimi}
+                                    </div>
+                                    <div className={`text-sm text-gray-600 group-hover:no-underline`}>
+                                        {job.tyonantajanNimi} - {job.kunta} - {job.tyonKestoTekstiYhdistetty} -{' '}
+                                        {job.tyoaika}
+                                    </div>
+                                </div>
+                            )}
                         </Link>
                     )
                 })}
@@ -88,11 +116,56 @@ export const JobsList: React.FC<JobsListProps> = ({ jobs, totalAmountOfJobs, lan
 
     return (
         <>
-            {totalAmountOfJobs && (
-                <p className="text-gray-600 pl-8 pb-2">
-                    {totalAmountOfJobs} {t('job_search_container_number_of_jobs_found')}
-                </p>
-            )}
+            <div className="flex flex-row justify-between pl-8 pb-2">
+                <div className="flex flex-col">
+                    {totalAmountOfJobs && (
+                        <p className="text-gray-600 align-bottom h-full">
+                            {totalAmountOfJobs} {t('job_search_container_number_of_jobs_found')}
+                        </p>
+                    )}
+                </div>
+                <div className="flex flex-col">
+                    {denseList ? (
+                        <button
+                            onClick={() => setDenseList(false)}
+                            className="h-8 w-8 bg-gray-400 p-1 hover:bg-green text-white font-bold rounded inline-flex items-center"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                            >
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth={2}
+                                    d="M4 8h16M4 16h16"
+                                />
+                            </svg>
+                        </button>
+                    ) : (
+                        <button
+                            onClick={() => setDenseList(true)}
+                            className="h-8 w-8 bg-gray-400 p-1 hover:bg-green text-white font-bold rounded inline-flex items-center"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                            >
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth={2}
+                                    d="M4 6h16M4 12h16M4 18h16"
+                                />
+                            </svg>
+                        </button>
+                    )}
+                </div>
+            </div>
 
             <div className="flex flex-col p-4 shadow-2xl rounded-xl bg-white">{content}</div>
 

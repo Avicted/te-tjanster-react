@@ -1,1 +1,1 @@
-export const JOBS_PER_SEARCH_QUERY = 30
+export const JOBS_PER_SEARCH_QUERY = 50
