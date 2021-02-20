@@ -12,6 +12,7 @@ import { ApiResponse } from '../../../entities/apiResponse'
 import { JobDetails } from '../../../entities/jobDetails'
 import { Locations } from '../../../entities/locations'
 import { JobSearchParameters } from '../../../entities/jobSearchParameters'
+import { JOBS_PER_SEARCH_QUERY } from '../../../constants'
 
 const TeApi = new TEApi()
 
@@ -63,7 +64,7 @@ function* loadJobsFlow(action: SearchJobs) {
                 language,
                 location,
                 query,
-                start,
+                start: start + JOBS_PER_SEARCH_QUERY,
                 appendJobsToPreviousJobs,
             }
 

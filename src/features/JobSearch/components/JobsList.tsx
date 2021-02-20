@@ -16,14 +16,16 @@ interface JobsListProps {
 }
 
 export const JobsList: React.FC<JobsListProps> = ({ jobs, totalAmountOfJobs, language }) => {
+    let content: any = null
     const { t, i18n } = useTranslation()
     const dispatch = useDispatch()
     const isLoading: boolean = useSelector((state: AppState) => getLoadingData(state))
     const previousJobSearchQuery: JobSearchParameters | undefined = useSelector((state: AppState) =>
         getJobSearchParameters(state)
     )
-    let content: any = null
 
+    // @Avic continue here :)
+    // @Note: this is the infinite scrolling data fetching
     const fetchMoreJobsWithTheSameQuery = (): void => {
         if (previousJobSearchQuery === undefined) {
             return
@@ -36,31 +38,26 @@ export const JobsList: React.FC<JobsListProps> = ({ jobs, totalAmountOfJobs, lan
         )
     }
 
-    if (isLoading) {
-        return (
-            <div className="flex flex-col items-center pt-24">
-                <svg
-                    className="animate-spin -ml-1 mr-3 h-12 w-12 text-pink-500"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                >
-                    <circle
-                        className="opacity-25"
-                        cx="12"
-                        cy="12"
-                        r="10"
-                        stroke="currentColor"
-                        strokeWidth="4"
-                    ></circle>
-                    <path
-                        className="opacity-75"
-                        fill="currentColor"
-                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                    ></path>
-                </svg>
-            </div>
-        )
+    const loadingSpinner = (): React.ReactElement => (
+        <div className="flex flex-col items-center pt-24">
+            <svg
+                className="animate-spin -ml-1 mr-3 h-12 w-12 text-pink-500"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+            >
+                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                <path
+                    className="opacity-75"
+                    fill="currentColor"
+                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                ></path>
+            </svg>
+        </div>
+    )
+
+    if (isLoading && previousJobSearchQuery?.appendJobsToPreviousJobs === undefined) {
+        return loadingSpinner()
     }
 
     if (jobs === undefined) {
@@ -96,7 +93,13 @@ export const JobsList: React.FC<JobsListProps> = ({ jobs, totalAmountOfJobs, lan
                     {totalAmountOfJobs} {t('job_search_container_number_of_jobs_found')}
                 </p>
             )}
+
             <div className="flex flex-col p-4 shadow-2xl rounded-xl bg-white">{content}</div>
+
+            {isLoading && previousJobSearchQuery?.appendJobsToPreviousJobs === true && (
+                <div className="flex flex-row justify-center mt-8">{loadingSpinner()}</div>
+            )}
+
             <div className="flex flex-row justify-center mt-12">
                 <button
                     onClick={() => fetchMoreJobsWithTheSameQuery()}
