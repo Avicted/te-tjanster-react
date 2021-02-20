@@ -130,7 +130,7 @@ export const JobsList: React.FC<JobsListProps> = ({ jobs, totalAmountOfJobs, lan
                     {denseList ? (
                         <button
                             onClick={() => setDenseList(false)}
-                            className="h-8 w-8 bg-gray-400 p-1 hover:bg-green text-white font-bold rounded inline-flex items-center"
+                            className="h-8 w-8 bg-gray-400 p-1 focus:ring-0 hover:bg-gray-500 text-white font-bold rounded inline-flex items-center"
                         >
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -149,7 +149,7 @@ export const JobsList: React.FC<JobsListProps> = ({ jobs, totalAmountOfJobs, lan
                     ) : (
                         <button
                             onClick={() => setDenseList(true)}
-                            className="h-8 w-8 bg-gray-400 p-1 hover:bg-green text-white font-bold rounded inline-flex items-center"
+                            className="h-8 w-8 bg-gray-400 p-1 hover:bg-gray-500 text-white font-bold rounded inline-flex items-center"
                         >
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
