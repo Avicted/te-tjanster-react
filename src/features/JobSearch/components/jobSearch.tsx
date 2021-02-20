@@ -63,7 +63,6 @@ export const JobSearch: React.FC<JobSearchProps> = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [i18n.language])
 
-    // @Note: nesting.elements.com
     return (
         <div className="flex flex-col pt-12 md:pt-32 pb-16">
             <h1 className="font-sans text-3xl text-center text-black font-bold mb-6">{t('job_search_title')}</h1>
@@ -166,9 +165,12 @@ export const JobSearch: React.FC<JobSearchProps> = () => {
                         {t('job_search_search')}
                     </button>
                 </div>
-                <div className="w-2/4 flex flex-row md:flex-row text-left text-red-600 font-bold pt-4">
-                    {errors.location && watchLocation.length > 0 && <p>{t('job_search_invalid_location')}</p>}
-                </div>
+
+                {errors.location && watchLocation.length > 0 && (
+                    <div className="w-2/4 flex flex-row md:flex-row text-left text-red-600 font-bold pt-4">
+                        <p>{t('job_search_invalid_location')}</p>
+                    </div>
+                )}
             </form>
         </div>
     )
