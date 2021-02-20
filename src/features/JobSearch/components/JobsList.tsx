@@ -4,18 +4,37 @@ import { Link } from 'react-router-dom'
 import { Language } from '../../../enums/language'
 import { useTranslation } from 'react-i18next'
 import { AppState } from '../../../framework/store/rootReducer'
-import { getLoadingData } from '../reducers/jobSearchReducer'
-import { useSelector } from 'react-redux'
+import { getJobSearchParameters, getLoadingData } from '../reducers/jobSearchReducer'
+import { useDispatch, useSelector } from 'react-redux'
+import { jobSearchActions } from '../actions/jobSearchAction'
+import { JobSearchParameters } from '../../../entities/jobSearchParameters'
 
 interface JobsListProps {
     jobs: Job[] | undefined
+    totalAmountOfJobs: number | undefined
     language: Language
 }
 
-export const JobsList: React.FC<JobsListProps> = ({ jobs, language }) => {
-    const { t } = useTranslation()
+export const JobsList: React.FC<JobsListProps> = ({ jobs, totalAmountOfJobs, language }) => {
+    const { t, i18n } = useTranslation()
+    const dispatch = useDispatch()
     const isLoading: boolean = useSelector((state: AppState) => getLoadingData(state))
+    const previousJobSearchQuery: JobSearchParameters | undefined = useSelector((state: AppState) =>
+        getJobSearchParameters(state)
+    )
     let content: any = null
+
+    const fetchMoreJobsWithTheSameQuery = (): void => {
+        if (previousJobSearchQuery === undefined) {
+            return
+        }
+
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        const { language, query, location, start } = previousJobSearchQuery
+        dispatch(
+            jobSearchActions.SearchJobs(Language[i18n.language as keyof typeof Language], query, location, true, start)
+        )
+    }
 
     if (isLoading) {
         return (
@@ -49,6 +68,8 @@ export const JobsList: React.FC<JobsListProps> = ({ jobs, language }) => {
     } else if (jobs.length <= 0) {
         content = <div className="text-center p-8">{t('jobs_list_no_jobs_were_found')}</div>
     } else {
+        // @TODO: button toggle: -> save the preference in localStorage!
+        // "dense" list? a smaller version of the list, think of the gmail email listings. Their height is like 10-20px?
         content = (
             <div>
                 {jobs.map((job: Job, index: number) => {
@@ -70,12 +91,20 @@ export const JobsList: React.FC<JobsListProps> = ({ jobs, language }) => {
 
     return (
         <>
-            {jobs && jobs.length > 0 && (
+            {totalAmountOfJobs && (
                 <p className="text-gray-600 pl-8 pb-2">
-                    {jobs.length} {t('job_search_container_number_of_jobs_found')}
+                    {totalAmountOfJobs} {t('job_search_container_number_of_jobs_found')}
                 </p>
             )}
             <div className="flex flex-col p-4 shadow-2xl rounded-xl bg-white">{content}</div>
+            <div className="flex flex-row justify-center mt-12">
+                <button
+                    onClick={() => fetchMoreJobsWithTheSameQuery()}
+                    className="flex-shrink-0 bg-pink-500 text-white text-base font-semibold py-2 px-8 rounded-lg shadow-md hover:bg-pink-700 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2 focus:ring-offset-purple-200"
+                >
+                    {t('jobs_list_show_more')}
+                </button>
+            </div>
         </>
     )
 }

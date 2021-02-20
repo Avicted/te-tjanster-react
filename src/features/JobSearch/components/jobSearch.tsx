@@ -23,7 +23,6 @@ export const JobSearch: React.FC<JobSearchProps> = () => {
         mode: 'onChange',
         reValidateMode: 'onChange',
     })
-    const [showLocationSuggestions, setShowLocationSuggestions] = useState<boolean>(false)
     const watchLocation = watch('location', '')
     const dispatch = useDispatch()
     const locations: string[] | undefined = useSelector((state: AppState) =>
@@ -50,7 +49,9 @@ export const JobSearch: React.FC<JobSearchProps> = () => {
 
     const onSubmit = (formData: FormData) => {
         const { query, location } = formData
-        dispatch(jobSearchActions.SearchJobs(Language[i18n.language as keyof typeof Language], query, location))
+        dispatch(
+            jobSearchActions.SearchJobs(Language[i18n.language as keyof typeof Language], query, location, false, 0)
+        )
     }
 
     useEffect(() => {
@@ -62,6 +63,7 @@ export const JobSearch: React.FC<JobSearchProps> = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [i18n.language])
 
+    // @Note: nesting.elements.com
     return (
         <div className="flex flex-col pt-12 md:pt-32 pb-16">
             <h1 className="font-sans text-3xl text-center text-black font-bold mb-6">{t('job_search_title')}</h1>
@@ -71,7 +73,7 @@ export const JobSearch: React.FC<JobSearchProps> = () => {
             >
                 <div className="flex flex-row md:flex-col w-full md:w-1/4">
                     <input
-                        ref={register({ required: false, minLength: 2 })}
+                        ref={register({ required: false })}
                         autoComplete="off"
                         name="query"
                         className={`flex-1 appearance-none border border-transparent w-full py-2 px-4 bg-white text-gray-800 placeholder-gray-500 shadow-md rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-400 focus:border-transparent`}
@@ -85,11 +87,14 @@ export const JobSearch: React.FC<JobSearchProps> = () => {
                             <>
                                 <input
                                     ref={register({
-                                        required: true,
-                                        minLength: 2,
+                                        required: false,
                                         validate: (value: string): boolean => {
                                             if (locations === undefined) {
                                                 return false
+                                            }
+
+                                            if (value.length <= 0) {
+                                                return true
                                             }
 
                                             value = capitalizeFirstCharacterInString(value)
@@ -132,8 +137,6 @@ export const JobSearch: React.FC<JobSearchProps> = () => {
                                                                         setValue('location', location, {
                                                                             shouldValidate: true,
                                                                         })
-
-                                                                        setShowLocationSuggestions(false)
                                                                     }}
                                                                     className={`${
                                                                         active
