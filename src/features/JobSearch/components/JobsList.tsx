@@ -117,18 +117,20 @@ export const JobsList: React.FC<JobsListProps> = ({ jobs, totalAmountOfJobs, lan
     return (
         <>
             <div className="flex flex-row justify-between pl-8 pb-2">
-                <div className="flex flex-col">
-                    {totalAmountOfJobs && (
-                        <p className="text-gray-600 align-bottom h-full">
-                            {totalAmountOfJobs} {t('job_search_container_number_of_jobs_found')}
-                        </p>
-                    )}
-                </div>
+                {totalAmountOfJobs !== undefined && (
+                    <div className="flex flex-col">
+                        {totalAmountOfJobs > 0 && (
+                            <p className="text-gray-600 align-bottom h-full">
+                                {totalAmountOfJobs} {t('job_search_container_number_of_jobs_found')}
+                            </p>
+                        )}
+                    </div>
+                )}
                 <div className="flex flex-col">
                     {denseList ? (
                         <button
                             onClick={() => setDenseList(false)}
-                            className="h-8 w-8 bg-gray-400 p-1 hover:bg-green text-white font-bold rounded inline-flex items-center"
+                            className="h-8 w-8 bg-gray-400 p-1 focus:ring-0 hover:bg-gray-500 text-white font-bold rounded inline-flex items-center"
                         >
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -147,7 +149,7 @@ export const JobsList: React.FC<JobsListProps> = ({ jobs, totalAmountOfJobs, lan
                     ) : (
                         <button
                             onClick={() => setDenseList(true)}
-                            className="h-8 w-8 bg-gray-400 p-1 hover:bg-green text-white font-bold rounded inline-flex items-center"
+                            className="h-8 w-8 bg-gray-400 p-1 hover:bg-gray-500 text-white font-bold rounded inline-flex items-center"
                         >
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
