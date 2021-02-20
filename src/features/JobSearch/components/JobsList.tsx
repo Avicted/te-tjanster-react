@@ -83,13 +83,13 @@ export const JobsList: React.FC<JobsListProps> = ({ jobs, totalAmountOfJobs, lan
                     return (
                         <Link to={`/job/${job.ilmoitusnumero}/${language}`} key={index}>
                             {denseList ? (
-                                <div className="group flex flex-col flex-grow justify-between pl-4 pr-4 pt-1 pb-1 hover:bg-gray-100 rounded-md">
+                                <div className="group flex flex-col flex-grow justify-between pl-2 pr-2 md:pl-4 md:pr-4 pt-1 pb-1 hover:bg-gray-100 rounded-md">
                                     <div className="flex flex-row align-bottom">
-                                        <p className="w-2/3 md:w-auto text-sm font-medium group-hover:text-pink-500 pr-4 truncate">
+                                        <p className="w-2/3 md:w-auto text-xs text-gray-800 md:text-sm font-semibold group-hover:text-pink-600 pr-4 truncate">
                                             {job.tehtavanimi}
                                         </p>
                                         <span
-                                            className={`w-1/3 md:w-auto text-sm text-gray-600 group-hover:no-underline truncate`}
+                                            className={`w-1/3 md:w-auto text-xs md:text-sm text-gray-600 group-hover:no-underline truncate`}
                                         >
                                             {job.tyonantajanNimi} - {job.kunta} - {job.tyonKestoTekstiYhdistetty} -{' '}
                                             {job.tyoaika}
@@ -97,11 +97,11 @@ export const JobsList: React.FC<JobsListProps> = ({ jobs, totalAmountOfJobs, lan
                                     </div>
                                 </div>
                             ) : (
-                                <div className="group flex flex-col flex-grow justify-between pl-4 pr-4 pt-2 pb-2 hover:bg-gray-100 rounded-xl">
-                                    <div className="text-md font-medium group-hover:text-pink-500">
+                                <div className="group flex flex-col flex-grow justify-between pl-2 pr-2 md:pl-4 md:pr-4 pt-2 pb-2 hover:bg-gray-100 rounded-md">
+                                    <div className="text-xs md:text-sm text-gray-900 group-hover:text-pink-600 text-gray-800 font-semibold">
                                         {job.tehtavanimi}
                                     </div>
-                                    <div className={`text-sm text-gray-600 group-hover:no-underline`}>
+                                    <div className={`text-xs md:text-sm text-gray-600 group-hover:no-underline`}>
                                         {job.tyonantajanNimi} - {job.kunta} - {job.tyonKestoTekstiYhdistetty} -{' '}
                                         {job.tyoaika}
                                     </div>
@@ -116,11 +116,11 @@ export const JobsList: React.FC<JobsListProps> = ({ jobs, totalAmountOfJobs, lan
 
     return (
         <>
-            <div className="flex flex-row justify-between pl-8 pb-2">
+            <div className="flex flex-row justify-between mb-2 pl-4 md:pl-8">
                 {totalAmountOfJobs !== undefined && (
-                    <div className="flex flex-col">
+                    <div className="flex flex-col flex-grow">
                         {totalAmountOfJobs > 0 && (
-                            <p className="text-gray-600 align-bottom h-full">
+                            <p className="text-xs md:text-lg mt-auto text-gray-600 justify-end">
                                 {totalAmountOfJobs} {t('job_search_container_number_of_jobs_found')}
                             </p>
                         )}
@@ -169,7 +169,7 @@ export const JobsList: React.FC<JobsListProps> = ({ jobs, totalAmountOfJobs, lan
                 </div>
             </div>
 
-            <div className="flex flex-col p-4 shadow-2xl rounded-xl bg-white">{content}</div>
+            <div className="flex flex-col p-2 md:p-4 shadow-2xl rounded-xl bg-white">{content}</div>
 
             {isLoading && previousJobSearchQuery?.appendJobsToPreviousJobs === true && (
                 <div className="flex flex-row justify-center mt-8">{loadingSpinner()}</div>
