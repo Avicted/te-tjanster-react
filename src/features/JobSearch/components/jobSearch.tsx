@@ -65,7 +65,9 @@ export const JobSearch: React.FC<JobSearchProps> = () => {
 
     return (
         <div className="flex flex-col pt-12 md:pt-32 pb-16">
-            <h1 className="font-sans text-3xl text-center text-black font-bold mb-6">{t('job_search_title')}</h1>
+            <h1 className="font-sans text-2xl md:text-3xl text-center text-black font-bold mb-6">
+                {t('job_search_title')}
+            </h1>
             <form
                 onSubmit={handleSubmit(onSubmit)}
                 className="flex flex-nowrap md:flex-wrap flex-col md:flex-row gap-4 md:justify-center"
