@@ -120,7 +120,7 @@ export const JobsList: React.FC<JobsListProps> = ({ jobs, totalAmountOfJobs, lan
                 {totalAmountOfJobs !== undefined && (
                     <div className="flex flex-col flex-grow">
                         {totalAmountOfJobs > 0 && (
-                            <p className="text-xs md:text-lg text-gray-600 justify-end">
+                            <p className="text-xs md:text-lg mt-auto text-gray-600 justify-end">
                                 {totalAmountOfJobs} {t('job_search_container_number_of_jobs_found')}
                             </p>
                         )}

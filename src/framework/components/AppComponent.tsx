@@ -17,7 +17,9 @@ class AppComponent extends Component<AppComponentProps, AppComponentState> {
         const { children } = this.props
         return (
             <div className="flex flex-col min-h-screen p-4 md:p-0">
-                <div className="flex flex-col flex-grow container mx-auto font-sans bg-transparent">{children}</div>
+                <div className="flex flex-col flex-grow container mx-auto px-0 md:px-40 font-sans bg-transparent">
+                    {children}
+                </div>
                 <Footer />
             </div>
         )
