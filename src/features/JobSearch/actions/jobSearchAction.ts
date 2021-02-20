@@ -1,6 +1,7 @@
 import { Action } from 'redux'
 import { Job } from '../../../entities/Job'
 import { JobDetails } from '../../../entities/jobDetails'
+import { JobSearchParameters } from '../../../entities/jobSearchParameters'
 import { Locations } from '../../../entities/locations'
 import { Language } from '../../../enums/language'
 
@@ -16,16 +17,16 @@ export enum JobSearchActionTypes {
     GetLocationsError = 'JobSearch/GetLocationsError',
 }
 
-export interface SearchJobs extends Action {
+export interface SearchJobs extends Action, JobSearchParameters {
     type: JobSearchActionTypes.SearchJobs
-    language: Language
-    query: string
-    location: string
 }
 
 export interface SearchJobsSuccess extends Action {
     type: JobSearchActionTypes.SearchJobsSuccess
     jobs: Job[]
+    totalAmountOfJobs: number | undefined
+    appendJobsToPreviousJobs: boolean
+    jobSearchParameters: JobSearchParameters
 }
 
 export interface SearchJobsError extends Action {
@@ -78,15 +79,31 @@ export const jobSearchActions = {
         type: JobSearchActionTypes.GetJobDetailsError,
         error,
     }),
-    SearchJobs: (language: Language, query: string, location: string): SearchJobs => ({
+    SearchJobs: (
+        language: Language,
+        query: string,
+        location: string,
+        appendJobsToPreviousJobs: boolean,
+        start: number
+    ): SearchJobs => ({
         type: JobSearchActionTypes.SearchJobs,
         language,
         query,
         location,
+        appendJobsToPreviousJobs,
+        start,
     }),
-    SearchJobsSuccess: (jobs: Job[]): SearchJobsSuccess => ({
+    SearchJobsSuccess: (
+        jobs: Job[],
+        totalAmountOfJobs: number | undefined,
+        appendJobsToPreviousJobs: boolean,
+        jobSearchParameters: JobSearchParameters
+    ): SearchJobsSuccess => ({
         type: JobSearchActionTypes.SearchJobsSuccess,
         jobs,
+        totalAmountOfJobs,
+        appendJobsToPreviousJobs,
+        jobSearchParameters,
     }),
     SearchJobsError: (error: string): SearchJobsError => ({
         type: JobSearchActionTypes.SearchJobsError,
@@ -117,12 +134,13 @@ export type JobActions =
     | GetLocationsSuccess
     | GetLocationsError
 
-export function searchJobs(language: Language, query: string, location: string) {
+export function searchJobs(language: Language, query: string, location: string, start?: number) {
     return {
         type: JobSearchActionTypes.SearchJobs,
         language,
         query,
         location,
+        start,
     }
 }
 

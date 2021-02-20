@@ -1,15 +1,19 @@
 import produce from 'immer'
 import { Job } from '../../../entities/Job'
 import { JobDetails } from '../../../entities/jobDetails'
+import { JobSearchParameters } from '../../../entities/jobSearchParameters'
 import { Locations } from '../../../entities/locations'
 import { AppState } from '../../../framework/store/rootReducer'
 import { JobActions, JobSearchActionTypes } from '../actions/jobSearchAction'
 
+// State definition
 interface JobSearchState {
     jobsFound: Job[] | undefined
+    totalAmountOfJobs: number | undefined
     loadingData: boolean
+    jobSearchParameters: JobSearchParameters | undefined
     loadingDataError: boolean
-    error: string | undefined
+    jobSearchError: string | undefined
     jobDetails: JobDetails | undefined
     loadingJobDetails: boolean
     loadingJobDetailsError: string | undefined
@@ -20,9 +24,11 @@ interface JobSearchState {
 
 const initialState: JobSearchState = {
     jobsFound: undefined,
+    totalAmountOfJobs: undefined,
     loadingData: false,
+    jobSearchParameters: undefined,
     loadingDataError: false,
-    error: undefined,
+    jobSearchError: undefined,
     jobDetails: undefined,
     loadingJobDetails: false,
     loadingJobDetailsError: undefined,
@@ -33,20 +39,28 @@ const initialState: JobSearchState = {
 
 export function jobSearchReducer(state: JobSearchState = initialState, action: JobActions) {
     switch (action.type) {
+        // When a particular event takes place, how should the state chage?
+        // (draft) => think of it as an unsaved document of the state => "produce" is the function that saves the document
         case JobSearchActionTypes.SearchJobs:
             return produce(state, (draft) => {
                 draft.loadingData = true
-                draft.error = undefined
+                draft.jobSearchError = undefined
                 draft.loadingDataError = false
             })
         case JobSearchActionTypes.SearchJobsSuccess:
             return produce(state, (draft) => {
-                draft.jobsFound = action.jobs
+                if (action.appendJobsToPreviousJobs) {
+                    draft.jobsFound?.push(...action.jobs)
+                } else {
+                    draft.jobsFound = action.jobs
+                }
+                draft.totalAmountOfJobs = action.totalAmountOfJobs
                 draft.loadingData = false
+                draft.jobSearchParameters = action.jobSearchParameters
             })
         case JobSearchActionTypes.SearchJobsError:
             return produce(state, (draft) => {
-                draft.error = action.error
+                draft.jobSearchError = action.error
                 draft.loadingDataError = true
                 draft.loadingData = false
             })
@@ -90,22 +104,32 @@ export function jobSearchReducer(state: JobSearchState = initialState, action: J
     }
 }
 
+// Getters for the state
 export function getJobsFound(state: AppState): any[] | undefined {
     return state.jobSearch.jobsFound
+}
+
+export function getTotalAmountOfJobs(state: AppState): number | undefined {
+    return state.jobSearch.totalAmountOfJobs
 }
 
 export function getLoadingData(state: AppState): boolean {
     return state.jobSearch.loadingData
 }
 
+export function getJobSearchParameters(state: AppState): JobSearchParameters | undefined {
+    return state.jobSearch.jobSearchParameters
+}
+
 export function getLoadingDataError(state: AppState): boolean {
     return state.jobSearch.loadingDataError
 }
 
-export function getError(state: AppState): string | undefined {
-    return state.jobSearch.error
+export function getJobSearchError(state: AppState): string | undefined {
+    return state.jobSearch.jobSearchError
 }
 
+// @TOOD: should the job details be located in a separated reducer + actions?
 export function getJobDetails(state: AppState): JobDetails | undefined {
     return state.jobSearch.jobDetails
 }
@@ -118,6 +142,7 @@ export function getLoadingJobDetailsError(state: AppState): string | undefined {
     return state.jobSearch.loadingJobDetailsError
 }
 
+// @TODO: should the locations be located lol in a separate reducer + actions?
 export function getLocations(state: AppState): Locations | undefined {
     return state.jobSearch.locations
 }

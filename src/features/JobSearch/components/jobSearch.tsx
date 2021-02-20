@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { useDispatch, useSelector } from 'react-redux'
 import { Language } from '../../../enums/language'
@@ -23,7 +23,6 @@ export const JobSearch: React.FC<JobSearchProps> = () => {
         mode: 'onChange',
         reValidateMode: 'onChange',
     })
-    const [showLocationSuggestions, setShowLocationSuggestions] = useState<boolean>(false)
     const watchLocation = watch('location', '')
     const dispatch = useDispatch()
     const locations: string[] | undefined = useSelector((state: AppState) =>
@@ -50,7 +49,9 @@ export const JobSearch: React.FC<JobSearchProps> = () => {
 
     const onSubmit = (formData: FormData) => {
         const { query, location } = formData
-        dispatch(jobSearchActions.SearchJobs(Language[i18n.language as keyof typeof Language], query, location))
+        dispatch(
+            jobSearchActions.SearchJobs(Language[i18n.language as keyof typeof Language], query, location, false, 0)
+        )
     }
 
     useEffect(() => {
@@ -71,7 +72,7 @@ export const JobSearch: React.FC<JobSearchProps> = () => {
             >
                 <div className="flex flex-row md:flex-col w-full md:w-1/4">
                     <input
-                        ref={register({ required: false, minLength: 2 })}
+                        ref={register({ required: false })}
                         autoComplete="off"
                         name="query"
                         className={`flex-1 appearance-none border border-transparent w-full py-2 px-4 bg-white text-gray-800 placeholder-gray-500 shadow-md rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-pink-400 focus:border-transparent`}
@@ -85,11 +86,14 @@ export const JobSearch: React.FC<JobSearchProps> = () => {
                             <>
                                 <input
                                     ref={register({
-                                        required: true,
-                                        minLength: 2,
+                                        required: false,
                                         validate: (value: string): boolean => {
                                             if (locations === undefined) {
                                                 return false
+                                            }
+
+                                            if (value.length <= 0) {
+                                                return true
                                             }
 
                                             value = capitalizeFirstCharacterInString(value)
@@ -132,8 +136,6 @@ export const JobSearch: React.FC<JobSearchProps> = () => {
                                                                         setValue('location', location, {
                                                                             shouldValidate: true,
                                                                         })
-
-                                                                        setShowLocationSuggestions(false)
                                                                     }}
                                                                     className={`${
                                                                         active
@@ -163,9 +165,12 @@ export const JobSearch: React.FC<JobSearchProps> = () => {
                         {t('job_search_search')}
                     </button>
                 </div>
-                <div className="w-2/4 flex flex-row md:flex-row text-left text-red-600 font-bold pt-4">
-                    {errors.location && watchLocation.length > 0 && <p>{t('job_search_invalid_location')}</p>}
-                </div>
+
+                {errors.location && watchLocation.length > 0 && (
+                    <div className="w-2/4 flex flex-row md:flex-row text-left text-red-600 font-bold pt-4">
+                        <p>{t('job_search_invalid_location')}</p>
+                    </div>
+                )}
             </form>
         </div>
     )

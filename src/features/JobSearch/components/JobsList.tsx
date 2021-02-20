@@ -1,47 +1,75 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Job } from '../../../entities/Job'
 import { Link } from 'react-router-dom'
 import { Language } from '../../../enums/language'
 import { useTranslation } from 'react-i18next'
 import { AppState } from '../../../framework/store/rootReducer'
-import { getLoadingData } from '../reducers/jobSearchReducer'
-import { useSelector } from 'react-redux'
+import { getJobSearchParameters, getLoadingData } from '../reducers/jobSearchReducer'
+import { useDispatch, useSelector } from 'react-redux'
+import { jobSearchActions } from '../actions/jobSearchAction'
+import { JobSearchParameters } from '../../../entities/jobSearchParameters'
 
 interface JobsListProps {
     jobs: Job[] | undefined
+    totalAmountOfJobs: number | undefined
     language: Language
 }
 
-export const JobsList: React.FC<JobsListProps> = ({ jobs, language }) => {
-    const { t } = useTranslation()
-    const isLoading: boolean = useSelector((state: AppState) => getLoadingData(state))
+export const JobsList: React.FC<JobsListProps> = ({ jobs, totalAmountOfJobs, language }) => {
     let content: any = null
+    const { t, i18n } = useTranslation()
+    const [denseList, setDenseList] = useState<boolean>(false)
+    const dispatch = useDispatch()
+    const isLoading: boolean = useSelector((state: AppState) => getLoadingData(state))
+    const previousJobSearchQuery: JobSearchParameters | undefined = useSelector((state: AppState) =>
+        getJobSearchParameters(state)
+    )
 
-    if (isLoading) {
-        return (
-            <div className="flex flex-col items-center pt-24">
-                <svg
-                    className="animate-spin -ml-1 mr-3 h-12 w-12 text-pink-500"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                >
-                    <circle
-                        className="opacity-25"
-                        cx="12"
-                        cy="12"
-                        r="10"
-                        stroke="currentColor"
-                        strokeWidth="4"
-                    ></circle>
-                    <path
-                        className="opacity-75"
-                        fill="currentColor"
-                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                    ></path>
-                </svg>
-            </div>
+    const fetchMoreJobsWithTheSameQuery = (): void => {
+        if (previousJobSearchQuery === undefined) {
+            return
+        }
+
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        const { language, query, location, start } = previousJobSearchQuery
+        dispatch(
+            jobSearchActions.SearchJobs(Language[i18n.language as keyof typeof Language], query, location, true, start)
         )
+    }
+
+    const loadingSpinner = (): React.ReactElement => (
+        <div className="flex flex-col items-center pt-24">
+            <svg
+                className="animate-spin -ml-1 mr-3 h-12 w-12 text-pink-500"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+            >
+                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                <path
+                    className="opacity-75"
+                    fill="currentColor"
+                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                ></path>
+            </svg>
+        </div>
+    )
+
+    useEffect(() => {
+        const data = localStorage.getItem('dense_list')
+        const result: boolean = data === 'true' ? true : false
+
+        if (data) {
+            setDenseList(result)
+        }
+    }, [])
+
+    useEffect(() => {
+        localStorage.setItem('dense_list', `${denseList}`)
+    })
+
+    if (isLoading && previousJobSearchQuery?.appendJobsToPreviousJobs === undefined) {
+        return loadingSpinner()
     }
 
     if (jobs === undefined) {
@@ -54,13 +82,31 @@ export const JobsList: React.FC<JobsListProps> = ({ jobs, language }) => {
                 {jobs.map((job: Job, index: number) => {
                     return (
                         <Link to={`/job/${job.ilmoitusnumero}/${language}`} key={index}>
-                            <div className="group flex flex-col flex-grow justify-between p-4 hover:bg-gray-100 rounded-xl">
-                                <div className="text-xl font-medium group-hover:text-pink-500">{job.tehtavanimi}</div>
-                                <div className={`font-normal text-gray-600 group-hover:no-underline`}>
-                                    {job.tyonantajanNimi} - {job.kunta} - {job.tyonKestoTekstiYhdistetty} -{' '}
-                                    {job.tyoaika}
+                            {denseList ? (
+                                <div className="group flex flex-col flex-grow justify-between pl-4 pr-4 pt-1 pb-1 hover:bg-gray-100 rounded-md">
+                                    <div className="flex flex-row align-bottom">
+                                        <p className="w-2/3 md:w-auto text-sm font-medium group-hover:text-pink-500 pr-4 truncate">
+                                            {job.tehtavanimi}
+                                        </p>
+                                        <span
+                                            className={`w-1/3 md:w-auto text-sm text-gray-600 group-hover:no-underline truncate`}
+                                        >
+                                            {job.tyonantajanNimi} - {job.kunta} - {job.tyonKestoTekstiYhdistetty} -{' '}
+                                            {job.tyoaika}
+                                        </span>
+                                    </div>
                                 </div>
-                            </div>
+                            ) : (
+                                <div className="group flex flex-col flex-grow justify-between pl-4 pr-4 pt-2 pb-2 hover:bg-gray-100 rounded-xl">
+                                    <div className="text-md font-medium group-hover:text-pink-500">
+                                        {job.tehtavanimi}
+                                    </div>
+                                    <div className={`text-sm text-gray-600 group-hover:no-underline`}>
+                                        {job.tyonantajanNimi} - {job.kunta} - {job.tyonKestoTekstiYhdistetty} -{' '}
+                                        {job.tyoaika}
+                                    </div>
+                                </div>
+                            )}
                         </Link>
                     )
                 })}
@@ -70,12 +116,71 @@ export const JobsList: React.FC<JobsListProps> = ({ jobs, language }) => {
 
     return (
         <>
-            {jobs && jobs.length > 0 && (
-                <p className="text-gray-600 pl-8 pb-2">
-                    {jobs.length} {t('job_search_container_number_of_jobs_found')}
-                </p>
-            )}
+            <div className="flex flex-row justify-between pl-8 pb-2">
+                <div className="flex flex-col">
+                    {totalAmountOfJobs && (
+                        <p className="text-gray-600 align-bottom h-full">
+                            {totalAmountOfJobs} {t('job_search_container_number_of_jobs_found')}
+                        </p>
+                    )}
+                </div>
+                <div className="flex flex-col">
+                    {denseList ? (
+                        <button
+                            onClick={() => setDenseList(false)}
+                            className="h-8 w-8 bg-gray-400 p-1 hover:bg-green text-white font-bold rounded inline-flex items-center"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                            >
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth={2}
+                                    d="M4 8h16M4 16h16"
+                                />
+                            </svg>
+                        </button>
+                    ) : (
+                        <button
+                            onClick={() => setDenseList(true)}
+                            className="h-8 w-8 bg-gray-400 p-1 hover:bg-green text-white font-bold rounded inline-flex items-center"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                            >
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth={2}
+                                    d="M4 6h16M4 12h16M4 18h16"
+                                />
+                            </svg>
+                        </button>
+                    )}
+                </div>
+            </div>
+
             <div className="flex flex-col p-4 shadow-2xl rounded-xl bg-white">{content}</div>
+
+            {isLoading && previousJobSearchQuery?.appendJobsToPreviousJobs === true && (
+                <div className="flex flex-row justify-center mt-8">{loadingSpinner()}</div>
+            )}
+
+            <div className="flex flex-row justify-center mt-12">
+                <button
+                    onClick={() => fetchMoreJobsWithTheSameQuery()}
+                    className="flex-shrink-0 bg-pink-500 text-white text-base font-semibold py-2 px-8 rounded-lg shadow-md hover:bg-pink-700 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2 focus:ring-offset-purple-200"
+                >
+                    {t('jobs_list_show_more')}
+                </button>
+            </div>
         </>
     )
 }

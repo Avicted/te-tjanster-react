@@ -9,6 +9,7 @@ export const LanugageSelection: React.FC<LanguageSelectionProps> = () => {
 
     useEffect(() => {
         document.title = t('all_app_title')
+        localStorage.setItem('language', i18n.language)
     }, [i18n.language, t])
 
     return (
