@@ -46,6 +46,9 @@ export function jobSearchReducer(state: JobSearchState = initialState, action: J
                 draft.loadingData = true
                 draft.jobSearchError = undefined
                 draft.loadingDataError = false
+                if (draft.jobSearchParameters !== undefined) {
+                    draft.jobSearchParameters.appendJobsToPreviousJobs = action.appendJobsToPreviousJobs
+                }
             })
         case JobSearchActionTypes.SearchJobsSuccess:
             return produce(state, (draft) => {
