@@ -3,6 +3,7 @@ import { Job } from '../../../entities/Job'
 import { JobDetails } from '../../../entities/jobDetails'
 import { JobSearchParameters } from '../../../entities/jobSearchParameters'
 import { Locations } from '../../../entities/locations'
+import { Profession } from '../../../entities/profession'
 import { AppState } from '../../../framework/store/rootReducer'
 import { JobActions, JobSearchActionTypes } from '../actions/jobSearchAction'
 
@@ -20,6 +21,11 @@ interface JobSearchState {
     locations: Locations | undefined
     loadingLocations: boolean
     loadingLocationsError: string | undefined
+    showFilterDialog: boolean
+    professions: Profession[] | undefined
+    loadingProfessions: boolean
+    loadingProfessionsError: string | undefined
+    professionsChecked: string[]
 }
 
 const initialState: JobSearchState = {
@@ -35,6 +41,11 @@ const initialState: JobSearchState = {
     locations: undefined,
     loadingLocations: false,
     loadingLocationsError: undefined,
+    showFilterDialog: false,
+    professions: undefined,
+    loadingProfessions: false,
+    loadingProfessionsError: undefined,
+    professionsChecked: [],
 }
 
 export function jobSearchReducer(state: JobSearchState = initialState, action: JobActions) {
@@ -102,6 +113,53 @@ export function jobSearchReducer(state: JobSearchState = initialState, action: J
                 draft.loadingLocations = false
                 draft.loadingLocationsError = action.error
             })
+        case JobSearchActionTypes.ShowFilterDialog:
+            return produce(state, (draft) => {
+                draft.showFilterDialog = true
+            })
+        case JobSearchActionTypes.HideFilterDialog:
+            return produce(state, (draft) => {
+                draft.showFilterDialog = false
+            })
+        case JobSearchActionTypes.GetProfessions:
+            return produce(state, (draft) => {
+                draft.loadingProfessions = true
+                draft.loadingProfessionsError = undefined
+            })
+        case JobSearchActionTypes.GetProfessionsSuccess:
+            return produce(state, (draft) => {
+                draft.loadingProfessionsError = undefined
+                draft.loadingProfessions = false
+                draft.professions = action.professions
+            })
+        case JobSearchActionTypes.GetProfessionsError:
+            return produce(state, (draft) => {
+                draft.loadingProfessions = false
+                draft.loadingProfessionsError = action.error
+            })
+        case JobSearchActionTypes.ProfessionChecked:
+            return produce(state, (draft) => {
+                // If the new professionId is the parent of any existing professionsChecked.
+                // Replace the children from professionsChecked with action.professionId
+                const children: string[] = draft.professionsChecked.filter((id: string) =>
+                    id.startsWith(action.professionId)
+                )
+
+                if (children.length > 0) {
+                    draft.professionsChecked = draft.professionsChecked.filter((id: string) => !children.includes(id))
+                    draft.professionsChecked.push(action.professionId)
+                } else {
+                    draft.professionsChecked?.push(action.professionId)
+                }
+            })
+        case JobSearchActionTypes.ProfessionUnchecked:
+            return produce(state, (draft) => {
+                draft.professionsChecked = draft.professionsChecked?.filter((id) => id !== action.professionId)
+            })
+        case JobSearchActionTypes.ClearProfessionsChecked:
+            return produce(state, (draft) => {
+                draft.professionsChecked = []
+            })
         default:
             return state
     }
@@ -156,4 +214,24 @@ export function getLoadingLocations(state: AppState): boolean {
 
 export function getLoadingLocationsError(state: AppState): string | undefined {
     return state.jobSearch.loadingLocationsError
+}
+
+export function getShowFilterDialog(state: AppState): boolean {
+    return state.jobSearch.showFilterDialog
+}
+
+export function getProfessions(state: AppState): Profession[] | undefined {
+    return state.jobSearch.professions
+}
+
+export function getLoadingProfessions(state: AppState): boolean {
+    return state.jobSearch.loadingProfessions
+}
+
+export function getLoadingProfessionsError(state: AppState): string | undefined {
+    return state.jobSearch.loadingProfessionsError
+}
+
+export function getProfessionsChecked(state: AppState): string[] {
+    return state.jobSearch.professionsChecked
 }

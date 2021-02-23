@@ -7,6 +7,12 @@
     "job_search_location": "Ort",
     "job_search_search": "Sök",
     "job_search_invalid_location": "Orten är ogiltig",
+    "job_search_filter": "Filter",
+
+    "filter_dialog_title": "Filter",
+    "filter_dialog_reset_filters": "Rensa filter",
+    "filter_dialog_profession_groups": "Yrkesbransch",
+    "filter_dialog_close": "Stäng",
 
     "language_selection_language": "Språk",
 
@@ -16,5 +22,6 @@
     "job_details_contact": "Kontakt",
     "job_details_website": "Hemsida",
     "job_details_worktime": "Arbetstid",
-    "job_details_deadline_for_applications": "Sista ansökningsdatum"
+    "job_details_deadline_for_applications": "Sista ansökningsdatum",
+    "job_details_send_application_link": "Lämna ansökan"
 }

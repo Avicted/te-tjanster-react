@@ -1,6 +1,7 @@
 import {
     GetJobDetails,
     GetLocations,
+    GetProfessions,
     jobSearchActions,
     JobSearchActionTypes,
     SearchJobs,
@@ -13,6 +14,7 @@ import { JobDetails } from '../../../entities/jobDetails'
 import { Locations } from '../../../entities/locations'
 import { JobSearchParameters } from '../../../entities/jobSearchParameters'
 import { JOBS_PER_SEARCH_QUERY } from '../../../constants'
+import { Profession } from '../../../entities/profession'
 
 const TeApi = new TEApi()
 
@@ -49,14 +51,15 @@ export function* searchJobsSaga() {
 // Worker saga
 function* loadJobsFlow(action: SearchJobs) {
     try {
-        const { language, query, location, start, appendJobsToPreviousJobs } = action
+        const { language, query, location, start, appendJobsToPreviousJobs, professionsChecked } = action
         const data: ApiResponse = yield call(
             TeApi.searchJob,
             language,
             query,
             location,
             start,
-            appendJobsToPreviousJobs
+            appendJobsToPreviousJobs,
+            professionsChecked
         )
 
         if (data.response?.docs) {
@@ -117,5 +120,24 @@ function* loadLocationsFlow(action: GetLocations) {
         }
     } catch (error) {
         yield put(jobSearchActions.GetLocationsError(error))
+    }
+}
+
+// Watcher saga
+export function* getProfessionsSaga() {
+    yield takeLatest(JobSearchActionTypes.GetProfessions, loadProfessionsFlow)
+}
+
+// Worker saga
+function* loadProfessionsFlow(action: GetProfessions) {
+    try {
+        const { language } = action
+        const data: ApiResponse | undefined = yield call(TeApi.getProfessions, language)
+
+        if (data !== undefined) {
+            yield put(jobSearchActions.GetProfessionsSuccess(data.response?.docs as Profession[]))
+        }
+    } catch (error) {
+        yield put(jobSearchActions.GetProfessionsError(error))
     }
 }
