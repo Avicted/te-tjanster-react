@@ -7,7 +7,6 @@ i18n.use(initReactI18next).init({
     resources: {},
     defaultNS: 'app',
     keySeparator: false, // we do not use keys in form messages.welcome
-    // @TODO: the initial language should be 'fi'.
     // If the user changes the language, then the localStorage should be updated to that lanugage key
     lng: localStorage.getItem('language') ?? 'fi',
     interpolation: {

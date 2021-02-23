@@ -7,6 +7,12 @@
     "job_search_location": "Paikkakunta",
     "job_search_search": "Hae",
     "job_search_invalid_location": "Paikkakunta on virheellinen",
+    "job_search_filter": "Suodata",
+
+    "filter_dialog_title": "Suodata",
+    "filter_dialog_reset_filters": "Nollaa suodattimet",
+    "filter_dialog_profession_groups": "Ammattiryhmät",
+    "filter_dialog_close": "Sulje",
 
     "language_selection_language": "Kieli",
 
@@ -16,5 +22,6 @@
     "job_details_contact": "Yhteystiedot",
     "job_details_website": "Kotisivu",
     "job_details_worktime": "Työaika",
-    "job_details_deadline_for_applications": "Hakemusten määräaika"
+    "job_details_deadline_for_applications": "Hakemusten määräaika",
+    "job_details_send_application_link": "Jätä hakemus"
 }

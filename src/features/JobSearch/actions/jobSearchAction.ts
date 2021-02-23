@@ -3,6 +3,7 @@ import { Job } from '../../../entities/Job'
 import { JobDetails } from '../../../entities/jobDetails'
 import { JobSearchParameters } from '../../../entities/jobSearchParameters'
 import { Locations } from '../../../entities/locations'
+import { Profession } from '../../../entities/profession'
 import { Language } from '../../../enums/language'
 
 export enum JobSearchActionTypes {
@@ -15,6 +16,14 @@ export enum JobSearchActionTypes {
     GetLocations = 'JobSearch/GetLocations',
     GetLocationsSuccess = 'JobSearch/GetLocationsSuccess',
     GetLocationsError = 'JobSearch/GetLocationsError',
+    ShowFilterDialog = 'JobSearch/ShowFilterDialog',
+    HideFilterDialog = 'JobSearch/HideFilterDialog',
+    GetProfessions = 'JobSearch/GetProfessions',
+    GetProfessionsSuccess = 'JobSearch/GetProfessionsSuccess',
+    GetProfessionsError = 'JobSearch/GetProfessionsError',
+    ProfessionChecked = 'JobSearch/ProfessionChecked',
+    ProfessionUnchecked = 'JobSearch/ProfessionUnchecked',
+    ClearProfessionsChecked = 'JobSearch/ClearProfessionsChecked',
 }
 
 export interface SearchJobs extends Action, JobSearchParameters {
@@ -65,6 +74,43 @@ export interface GetLocationsError extends Action {
     error: string
 }
 
+export interface ShowFilterDialog extends Action {
+    type: JobSearchActionTypes.ShowFilterDialog
+}
+
+export interface HideFilterDialog extends Action {
+    type: JobSearchActionTypes.HideFilterDialog
+}
+
+export interface GetProfessions extends Action {
+    type: JobSearchActionTypes.GetProfessions
+    language: Language
+}
+
+export interface GetProfessionsSuccess extends Action {
+    type: JobSearchActionTypes.GetProfessionsSuccess
+    professions: Profession[]
+}
+
+export interface GetProfessionsError extends Action {
+    type: JobSearchActionTypes.GetProfessionsError
+    error: string
+}
+
+export interface ProfessionChecked extends Action {
+    type: JobSearchActionTypes.ProfessionChecked
+    professionId: string
+}
+
+export interface ProfessionUnchecked extends Action {
+    type: JobSearchActionTypes.ProfessionUnchecked
+    professionId: string
+}
+
+export interface ClearProfessionsChecked extends Action {
+    type: JobSearchActionTypes.ClearProfessionsChecked
+}
+
 export const jobSearchActions = {
     GetJobDetails: (id: string, language: Language): GetJobDetails => ({
         type: JobSearchActionTypes.GetJobDetails,
@@ -84,7 +130,8 @@ export const jobSearchActions = {
         query: string,
         location: string,
         appendJobsToPreviousJobs: boolean,
-        start: number
+        start: number,
+        professionsChecked?: string[]
     ): SearchJobs => ({
         type: JobSearchActionTypes.SearchJobs,
         language,
@@ -92,6 +139,7 @@ export const jobSearchActions = {
         location,
         appendJobsToPreviousJobs,
         start,
+        professionsChecked,
     }),
     SearchJobsSuccess: (
         jobs: Job[],
@@ -121,6 +169,35 @@ export const jobSearchActions = {
         type: JobSearchActionTypes.GetLocationsError,
         error,
     }),
+    ShowFilterDialog: (): ShowFilterDialog => ({
+        type: JobSearchActionTypes.ShowFilterDialog,
+    }),
+    HideFilterDialog: (): HideFilterDialog => ({
+        type: JobSearchActionTypes.HideFilterDialog,
+    }),
+    GetProfessions: (language: Language): GetProfessions => ({
+        type: JobSearchActionTypes.GetProfessions,
+        language,
+    }),
+    GetProfessionsSuccess: (professions: Profession[]): GetProfessionsSuccess => ({
+        type: JobSearchActionTypes.GetProfessionsSuccess,
+        professions,
+    }),
+    GetProfessionsError: (error: string): GetProfessionsError => ({
+        type: JobSearchActionTypes.GetProfessionsError,
+        error,
+    }),
+    ProfessionChecked: (professionId: string): ProfessionChecked => ({
+        type: JobSearchActionTypes.ProfessionChecked,
+        professionId,
+    }),
+    ProfessionUnchecked: (professionId: string): ProfessionUnchecked => ({
+        type: JobSearchActionTypes.ProfessionUnchecked,
+        professionId,
+    }),
+    ClearProfessionsChecked: (): ClearProfessionsChecked => ({
+        type: JobSearchActionTypes.ClearProfessionsChecked,
+    }),
 }
 
 export type JobActions =
@@ -133,28 +210,11 @@ export type JobActions =
     | GetLocations
     | GetLocationsSuccess
     | GetLocationsError
-
-export function searchJobs(language: Language, query: string, location: string, start?: number) {
-    return {
-        type: JobSearchActionTypes.SearchJobs,
-        language,
-        query,
-        location,
-        start,
-    }
-}
-
-export function getJobDetails(jobId: number, language: Language) {
-    return {
-        type: JobSearchActionTypes.GetJobDetails,
-        jobId,
-        language,
-    }
-}
-
-export function getLocations(language: Language) {
-    return {
-        type: JobSearchActionTypes.GetLocations,
-        language,
-    }
-}
+    | ShowFilterDialog
+    | HideFilterDialog
+    | GetProfessions
+    | GetProfessionsSuccess
+    | GetProfessionsError
+    | ProfessionChecked
+    | ProfessionUnchecked
+    | ClearProfessionsChecked

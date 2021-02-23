@@ -80,43 +80,59 @@ export const JobsDetails: React.FC<JobDetailsProps> = () => {
                         {jobDetails?.kuvausteksti}
                     </div>
 
-                    <div className="grid grid-cols-1 lg:grid-cols-4 p-4 md:p-8 mt-12 break-words md:text-base bg-gray-100 text-gray-600 rounded-b-xl">
-                        {jobDetails?.yhteystiedot && (
-                            <div className="mb-6 pr-0 lg:pr-2 lg:mb-0 text-xs md:text-sm">
-                                <p className="font-bold text-black pb-1">{t('job_details_contact')}</p>
-                                <p className="font-medium">{jobDetails?.yhteystiedot}</p>
-                            </div>
-                        )}
+                    <div className="p-4 md:p-8 mt-12 bg-gray-100 rounded-b-xl">
+                        <div className="grid grid-cols-1 lg:grid-cols-3 break-words md:text-base bg-gray-100 text-gray-600">
+                            {jobDetails?.yhteystiedot && (
+                                <div className="mb-6 pr-0 lg:pr-2 lg:mb-0 text-xs md:text-sm">
+                                    <p className="font-bold text-black pb-1">{t('job_details_contact')}</p>
+                                    <p className="font-medium">{jobDetails?.yhteystiedot}</p>
+                                </div>
+                            )}
 
-                        {jobDetails?.tyonantajanWwwOsoite && (
-                            <div className="mb-6 pr-0 lg:pr-2 lg:mb-0 text-xs md:text-sm">
-                                <p className="font-bold text-black pb-1">{t('job_details_website')}</p>
-                                <a
-                                    href={jobDetails.tyonantajanWwwOsoite}
-                                    className="hover:text-pink-600 hover:underline"
-                                >
-                                    {jobDetails.tyonantajanWwwOsoite}
-                                </a>
-                            </div>
-                        )}
+                            {jobDetails?.tyonantajanWwwOsoite && (
+                                <div className="mb-6 pr-0 lg:pr-2 lg:mb-0 text-xs md:text-sm">
+                                    <p className="font-bold text-black pb-1">{t('job_details_website')}</p>
+                                    <a
+                                        href={jobDetails.tyonantajanWwwOsoite}
+                                        className="hover:text-pink-600 hover:underline"
+                                    >
+                                        {jobDetails.tyonantajanWwwOsoite}
+                                    </a>
+                                </div>
+                            )}
 
-                        {jobDetails?.tyoaika && (
-                            <div className="mb-6 pr-0 lg:pr-2 lg:mb-0 text-xs md:text-sm">
-                                <p className="font-bold text-black pb-1">{t('job_details_worktime')}</p>
-                                <p className="font-medium">{jobDetails.tyoaika}</p>
-                            </div>
-                        )}
-
-                        {jobDetails?.viimeinenHakupaivamaara && (
-                            <div className="mb-6 lg:mb-0 text-xs md:text-sm">
-                                <p className="font-bold text-black pb-1">
-                                    {t('job_details_deadline_for_applications')}
-                                </p>
-                                <p className="font-medium">
-                                    {format(new Date(jobDetails?.viimeinenHakupaivamaara), 'dd-MM-yyyy')}
-                                </p>
-                            </div>
-                        )}
+                            {jobDetails?.tyoaika && (
+                                <div className="mb-6 pr-0 lg:pr-2 lg:mb-0 text-xs md:text-sm">
+                                    <p className="font-bold text-black pb-1">{t('job_details_worktime')}</p>
+                                    <p className="font-medium">{jobDetails.tyoaika}</p>
+                                </div>
+                            )}
+                        </div>
+                        <div className="grid grid-cols-1 pt-0 lg:pt-8 lg:grid-cols-3 break-words md:text-base bg-gray-100 text-gray-600">
+                            {jobDetails?.viimeinenHakupaivamaara && (
+                                <div className="mb-6 lg:mb-0 text-xs md:text-sm">
+                                    <p className="font-bold text-black pb-1">
+                                        {t('job_details_deadline_for_applications')}
+                                    </p>
+                                    <p className="font-medium">
+                                        {format(new Date(jobDetails?.viimeinenHakupaivamaara), 'dd-MM-yyyy')}
+                                    </p>
+                                </div>
+                            )}
+                            {jobDetails?.hakemusLahetetaan && (
+                                <div className="mb-6 lg:mb-0 text-xs md:text-sm">
+                                    <p className="font-bold text-black pb-1">
+                                        {t('job_details_send_application_link')}
+                                    </p>
+                                    <a
+                                        href={jobDetails.hakemusLahetetaan}
+                                        className="hover:text-pink-600 hover:underline"
+                                    >
+                                        {jobDetails.hakemusLahetetaan}
+                                    </a>
+                                </div>
+                            )}
+                        </div>
                     </div>
                 </div>
             </Transition>

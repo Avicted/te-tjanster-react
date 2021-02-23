@@ -181,11 +181,11 @@ export const JobsList: React.FC<JobsListProps> = ({ jobs, totalAmountOfJobs, lan
                         {jobs.length < totalAmountOfJobs && (
                             <button
                                 onClick={() => fetchMoreJobsWithTheSameQuery()}
-                                className="inline-flex flex-shrink-0 bg-pink-500 text-white text-base font-semibold py-2 px-8 rounded-lg shadow-md hover:bg-pink-700 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2 focus:ring-offset-purple-200"
+                                className="inline-flex flex-shrink-0 bg-pink-500 text-white text-base font-semibold py-2 px-6 rounded-lg shadow-md hover:bg-pink-700 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2 focus:ring-offset-purple-200"
                             >
                                 {isLoading && (
                                     <svg
-                                        className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+                                        className="animate-spin ml-1 mr-3 h-5 w-5 text-white"
                                         xmlns="http://www.w3.org/2000/svg"
                                         fill="none"
                                         viewBox="0 0 24 24"
