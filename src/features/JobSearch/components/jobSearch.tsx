@@ -81,6 +81,10 @@ export const JobSearch: React.FC<JobSearchProps> = () => {
     const { isValid, isDirty } = formState
 
     useEffect(() => {
+        console.log({ isValid, isDirty, formState, errors })
+    }, [isValid, isDirty, formState, errors])
+
+    useEffect(() => {
         trigger()
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
@@ -235,22 +239,12 @@ export const JobSearch: React.FC<JobSearchProps> = () => {
                 </div>
 
                 <div className="flex justify-center w-full pl-0 pr-0 sm:pl-4 sm:pr-4 sm:w-3/4 md:w-full md:order-4">
-                    {isValid || !isDirty ? (
-                        <button
-                            type="submit"
-                            className="w-full md:w-2/5 lg:w-1/5 flex-shrink-0 bg-pink-500 text-white text-base font-semibold py-2 rounded-lg shadow-md hover:bg-pink-700 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2 focus:ring-offset-purple-200"
-                        >
-                            {t('job_search_search')}
-                        </button>
-                    ) : (
-                        <button
-                            type="submit"
-                            disabled={true}
-                            className="w-full md:w-2/5 lg:w-1/5 flex-shrink-0 text-white text-base font-semibold py-2 rounded-lg shadow-md bg-pink-500 opacity-50 cursor-default"
-                        >
-                            {t('job_search_search')}
-                        </button>
-                    )}
+                    <button
+                        type="submit"
+                        className="w-full md:w-2/5 lg:w-1/5 flex-shrink-0 bg-pink-500 text-white text-base font-semibold py-2 rounded-lg shadow-md hover:bg-pink-700 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2 focus:ring-offset-purple-200"
+                    >
+                        {t('job_search_search')}
+                    </button>
                 </div>
             </form>
             <FilterDialog />
