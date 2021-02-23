@@ -80,9 +80,9 @@ export const JobSearch: React.FC<JobSearchProps> = () => {
 
     const { isValid, isDirty } = formState
 
-    useEffect(() => {
+    /* useEffect(() => {
         console.log({ isValid, isDirty, formState, errors })
-    }, [isValid, isDirty, formState, errors])
+    }, [isValid, isDirty, formState, errors]) */
 
     useEffect(() => {
         trigger()
