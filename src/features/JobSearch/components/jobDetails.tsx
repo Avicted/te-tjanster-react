@@ -132,6 +132,12 @@ export const JobsDetails: React.FC<JobDetailsProps> = () => {
                                     </a>
                                 </div>
                             )}
+                            {jobDetails?.palkkausteksti && (
+                                <div className="mb-6 lg:mb-0 text-xs md:text-sm">
+                                    <p className="font-bold text-black pb-1">{t('job_details_salary')}</p>
+                                    <p className="font-medium">{jobDetails?.palkkausteksti}</p>
+                                </div>
+                            )}
                         </div>
                     </div>
                 </div>

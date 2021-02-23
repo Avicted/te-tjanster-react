@@ -8,4 +8,5 @@ export interface JobDetails {
     tyonantajanWwwOsoite?: string
     viimeinenHakupaivamaara: string
     tyoaika: string
+    palkkausteksti?: string
 }
