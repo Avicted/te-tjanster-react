@@ -23,5 +23,6 @@
     "job_details_website": "Hemsida",
     "job_details_worktime": "Arbetstid",
     "job_details_deadline_for_applications": "Sista ansökningsdatum",
-    "job_details_send_application_link": "Lämna ansökan"
+    "job_details_send_application_link": "Lämna ansökan",
+    "job_details_salary": "Lön"
 }

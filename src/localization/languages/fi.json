@@ -23,5 +23,6 @@
     "job_details_website": "Kotisivu",
     "job_details_worktime": "Työaika",
     "job_details_deadline_for_applications": "Hakemusten määräaika",
-    "job_details_send_application_link": "Jätä hakemus"
+    "job_details_send_application_link": "Jätä hakemus",
+    "job_details_salary": "Palkka"
 }
