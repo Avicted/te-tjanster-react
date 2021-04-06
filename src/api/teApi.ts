@@ -1,6 +1,6 @@
 import { Locations } from '../entities/locations'
 import { Language } from '../enums/language'
-import programmerare_vasa_sv from '../resources/programmerare_vasa_sv.json'
+import all_jobs from '../resources/all_jobs.json'
 import single_job from '../resources/single_job.json'
 import locations from '../resources/locations.json'
 import professions from '../resources/professions.json'
@@ -48,7 +48,7 @@ export class TEApi {
                 console.error(
                     'REACT_APP_USE_LIVE_DATA_API = false has not been validated nor tried with the new logic!'
                 )
-                return programmerare_vasa_sv
+                return all_jobs
             }
         } catch (error) {
             console.error(error)

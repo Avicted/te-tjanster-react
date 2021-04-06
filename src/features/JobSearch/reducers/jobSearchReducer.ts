@@ -190,7 +190,6 @@ export function getJobSearchError(state: AppState): string | undefined {
     return state.jobSearch.jobSearchError
 }
 
-// @TOOD: should the job details be located in a separated reducer + actions?
 export function getJobDetails(state: AppState): JobDetails | undefined {
     return state.jobSearch.jobDetails
 }
@@ -203,7 +202,6 @@ export function getLoadingJobDetailsError(state: AppState): string | undefined {
     return state.jobSearch.loadingJobDetailsError
 }
 
-// @TODO: should the locations be located lol in a separate reducer + actions?
 export function getLocations(state: AppState): Locations | undefined {
     return state.jobSearch.locations
 }

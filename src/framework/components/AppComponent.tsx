@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { WithTranslation, withTranslation } from 'react-i18next'
+import { changeTheme } from '../../shared/utilities'
 // import { RouteComponentProps, withRouter } from 'react-router-dom'
 import { Footer } from './Footer'
 // import { Dispatch } from 'redux'
@@ -13,10 +14,15 @@ export interface AppComponentProps extends WithTranslation {
 export interface AppComponentState {}
 
 class AppComponent extends Component<AppComponentProps, AppComponentState> {
+    constructor(props: AppComponentProps) {
+        super(props)
+        changeTheme()
+    }
+
     render() {
         const { children } = this.props
         return (
-            <div className="flex flex-col min-h-screen p-2 md:p-4 md:p-0">
+            <div className="flex flex-col min-h-screen p-2 md:p-4 md:p-0 dark:bg-gray-800">
                 <div className="flex flex-col flex-grow container mx-auto px-0 md:px-10 lg:px-40 xl:px-60 font-sans bg-transparent">
                     {children}
                 </div>

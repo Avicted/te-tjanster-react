@@ -102,7 +102,7 @@ export const JobsList: React.FC<JobsListProps> = ({ jobs, totalAmountOfJobs, lan
                                 </div>
                             ) : (
                                 <div className="group flex flex-col flex-grow justify-between pl-2 pr-2 md:pl-4 md:pr-4 pt-2 pb-2 hover:bg-gray-100 rounded-md">
-                                    <div className="text-xs md:text-sm text-gray-900 group-hover:text-pink-600 text-gray-800 font-semibold">
+                                    <div className="text-xs md:text-sm group-hover:text-pink-600 text-gray-800 font-semibold">
                                         {job.tehtavanimi}
                                     </div>
                                     <div className={`text-xs md:text-sm text-gray-600 group-hover:no-underline`}>

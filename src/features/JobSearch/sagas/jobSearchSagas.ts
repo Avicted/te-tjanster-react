@@ -18,31 +18,6 @@ import { Profession } from '../../../entities/profession'
 
 const TeApi = new TEApi()
 
-/* HELLO TEAM ~ Avic
-What are redux sagas?
-    Preface: (Ja hoppas att dehär er förståerligt <3 )
-        Actions can be dispatched by either the app iteself such as:
-        "I the App want to fetch data in the background before the user has done anything!", 
-        or more commonly by a user action e.g a click or something.
-
-        I use sagas to act on a particular action. When that action is dispatched, we run a saga.
-        The saga will generally try to call an API method, which might fail or succeed.
-        Depending on the outcome, the saga will dispatch a "success" or "fail" action
-
-        Sagas are started by "action creators" and they "return" / dispatch actions with certain results.
-        [Example of a action creator: jobSearchActions.ts -> searchJobs function in the bottom of the file]
-        
-        These fail or success results gets stored in the reducer. The reducers job is to directly manipulate
-        the state. "Getters" in the reducer file are used to retrieve or read the state.
-
-
-
-   -1. Avic ~ A way to manage side effects e.g. API calls that might succeed or fail. They can be more complicated.
-    0. Someone calls an action creator => searchJobs in "jobSearchActions.ts"
-    1. In the wather saga, we listen to that action => "JobSearchActionTypes.SearchJobs"
-    2. We start to execute "loadJobsFlow" -> the saga / generator function that does the work
-*/
-
 // Watcher saga
 export function* searchJobsSaga() {
     yield takeLatest(JobSearchActionTypes.SearchJobs, loadJobsFlow)

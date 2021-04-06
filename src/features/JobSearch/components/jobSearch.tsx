@@ -79,17 +79,11 @@ export const JobSearch: React.FC<JobSearchProps> = () => {
     }, [i18n.language])
 
     const { isValid, isDirty } = formState
-
-    /* useEffect(() => {
-        console.log({ isValid, isDirty, formState, errors })
-    }, [isValid, isDirty, formState, errors]) */
-
     useEffect(() => {
         trigger()
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
-    // @TODO: location "Mänttä-Vilppula" is not valid in the form?
     return (
         <div className="flex flex-col pt-12 md:pt-32 pb-16">
             <h1 className="font-sans text-2xl md:text-3xl text-center text-black font-bold mb-6">
@@ -202,12 +196,6 @@ export const JobSearch: React.FC<JobSearchProps> = () => {
                         </Menu>
                     </div>
                 </div>
-
-                {/* {errors.location && watchLocation.length > 0 && (
-                    <div className="w-full w-2/4 flex flex-row md:flex-row text-left text-red-600 font-bold pt-4">
-                        <p>{t('job_search_invalid_location')}</p>
-                    </div>
-                )} */}
 
                 {/*  Filter button */}
                 <div className="flex justify-center w-full pb-4 pl-0 pr-0 sm:pl-4 sm:pr-4 sm:w-3/4 md:w-full md:order-3">
